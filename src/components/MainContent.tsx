@@ -17,10 +17,11 @@ import {
   Stack,
   Typography,
   useMediaQuery,
-  useTheme,
+  useTheme
 } from "@mui/material";
 import CircleIcon from "@mui/icons-material/Circle";
 import InstagramEmbed, { members } from "./Resources";
+import Banner from "./Banner";
 import style from "../style";
 
 const news = [
@@ -28,32 +29,32 @@ const news = [
     url: "https://bsb-bretten.de/2024/10/11/https-bsb-bretten-de-wp-content-uploads-2024-10-jungerukrainerfsj-jpeg/",
     image:
       "https://bsb-bretten.de/wp-content/uploads/2024/10/JungerUkrainerFSJ-300x225.jpeg",
-    title: "Junger Ukrainer möchte Fachinformatiker werden",
+    title: "Junger Ukrainer möchte Fachinformatiker werden"
   },
   {
     url: "https://bsb-bretten.de/2024/07/28/verabschiedung-von-markus-bader-an-den-bsb/",
     image:
       "https://bsb-bretten.de/wp-content/uploads/2024/07/240726_Verabschiedung-Bader-300x195.jpeg",
-    title: "Verabschiedung von Markus Bader an den BSB",
+    title: "Verabschiedung von Markus Bader an den BSB"
   },
   {
     url: "https://bsb-bretten.de/2024/07/16/7904/",
     image:
       "https://bsb-bretten.de/wp-content/uploads/2024/07/240716_Abschlussfeier_02-300x170.jpeg",
-    title: "Entlassungsfeier der BSB erstmals im Hallenzentrum „Grüner“",
+    title: "Entlassungsfeier der BSB erstmals im Hallenzentrum „Grüner“"
   },
   {
     url: "https://bsb-bretten.de/2024/07/15/chemiekurs-setzt-theoriet-in-praxis-um/",
     image:
       "https://bsb-bretten.de/wp-content/uploads/2024/07/240715_ChemieBach_01-300x169.jpg",
-    title: "Chemiekurs setzt Theorie in Praxis um",
+    title: "Chemiekurs setzt Theorie in Praxis um"
   },
   {
     url: "https://bsb-bretten.de/2024/07/12/melanchthon-schuelerpreis-mit-750-euro-fuer-laura-katz-sgg/",
     image:
       "https://bsb-bretten.de/wp-content/uploads/2024/07/240711_Melanchthonpreis-225x300.jpg",
-    title: "Melanchthon-Schülerpreis mit 750 Euro für Laura Katz (SGG)",
-  },
+    title: "Melanchthon-Schülerpreis mit 750 Euro für Laura Katz (SGG)"
+  }
 ];
 
 const MainContent = () => {
@@ -61,12 +62,13 @@ const MainContent = () => {
 
   return (
     <>
+      <Banner />
       <Box sx={{ bgcolor: style.palette.background.paper }}>
         <DepartmentComponent />
         <Grid2
           size={{
             xs: 12,
-            md: 8,
+            md: 8
           }}
           sx={{ paddingLeft: 6, paddingRight: 6 }}
         >
@@ -76,7 +78,7 @@ const MainContent = () => {
                 sx={{
                   color: "darkblue",
                   textAlign: "center",
-                  fontSize: "50px",
+                  fontSize: "50px"
                 }}
               >
                 <i>
@@ -226,24 +228,24 @@ const MainContent = () => {
             <Box
               sx={{
                 display: "flex",
-                justifyContent: "space-between",
+                justifyContent: "center",
                 mt: 6,
-                gap: 2,
+                mb: 6,
+                gap: 20
               }}
             >
               <Box
                 sx={{
-                  flex: 1,
-                  maxWidth: "48%", // Restrict the max width of each image container
+                  width: "450px",
+                  height: "650px",
                   position: "relative",
-                  display: "inline-block",
                   overflow: "hidden",
                   borderRadius: 4,
                   boxShadow: 8,
                   "&:hover img": {
                     transform: "scale(1.05)",
-                    transition: "transform 0.3s ease",
-                  },
+                    transition: "transform 0.3s ease"
+                  }
                 }}
               >
                 <Link
@@ -254,10 +256,10 @@ const MainContent = () => {
                     component="img"
                     src="assets/Infobroschuere_bretten.jpg"
                     sx={{
-                      width: "100%", // Makes the image fill the container
-                      height: "auto", // Maintains aspect ratio
-                      display: "block", // Ensures no extra space below the image
-                      objectFit: "cover", // Ensures it covers the container without distortion
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "contain",
+                      display: "block"
                     }}
                   />
                 </Link>
@@ -265,17 +267,16 @@ const MainContent = () => {
 
               <Box
                 sx={{
-                  flex: 1,
-                  maxWidth: "48%", // Restrict the max width of each image container
+                  width: "450px",
+                  height: "650px",
                   position: "relative",
-                  display: "inline-block",
                   overflow: "hidden",
                   borderRadius: 4,
                   boxShadow: 8,
                   "&:hover img": {
                     transform: "scale(1.05)",
-                    transition: "transform 0.3s ease",
-                  },
+                    transition: "transform 0.3s ease"
+                  }
                 }}
               >
                 <Link
@@ -286,104 +287,57 @@ const MainContent = () => {
                     component="img"
                     src="assets/Infotag.png"
                     sx={{
-                      width: "100%", // Makes the image fill the container
-                      height: "auto", // Maintains aspect ratio
-                      display: "block", // Ensures no extra space below the image
-                      objectFit: "cover", // Ensures it covers the container without distortion
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "contain",
+                      display: "block"
                     }}
                   />
                 </Link>
               </Box>
             </Box>
           </Paper>
-
-          <Paper
-            sx={{ height: "fit-content", zIndex: 9999, padding: 2, mt: 4 }}
+          <Stack
+            direction="row"
+            alignItems="center"
+            justifyContent="center"
+            sx={{
+              pt: 15,
+              marginBottom: 3,
+              textAlign: "start",
+              pb: 3
+            }}
           >
-            <Box>
-              <Typography variant="h4" sx={{ color: "darkblue", ml: 4 }}>
-                <b>Videos</b>
-              </Typography>
-              <Stack
-                useFlexGap
-                direction={
-                  useMediaQuery(theme.breakpoints.up("lg")) ? "row" : "column"
-                }
-                padding={1}
-                spacing={{ sm: 2, md: 6 }}
-                sx={{
-                  display: "flex",
-                  alignItems: useMediaQuery(theme.breakpoints.up("lg"))
-                    ? "flex-end"
-                    : "center",
-                  justifyContent: "center",
-                  flexWrap: "wrap",
-                }}
-              >
-                <Grid2 mr={2} justifyItems={"center"}>
-                  <video height={200} width={300} controls>
-                    <source
-                      src="https://bsb-bretten.de/wp-content/uploads/2021/10/210122_Imagefilm_BSB.mp4"
-                      type="video/mp4"
-                    ></source>
-                  </video>
-                  <Typography variant="subtitle1">Imagefilm</Typography>
-                </Grid2>
-                <Grid2 mr={2} justifyItems={"center"}>
-                  <Link href="https://www.unserebroschuere.de/video/20AA30190">
-                    <img
-                      src="https://bsb-bretten.de/wp-content/uploads/2023/02/thumbnail.jpg"
-                      height={185}
-                      width={300}
-                    ></img>
-                  </Link>
-                  <Typography variant="subtitle1">
-                    Wir bilden Zukunft
-                  </Typography>
-                </Grid2>
-                <Grid2 mr={2} justifyItems={"center"}>
-                  <video height={200} width={300} controls>
-                    <source
-                      src="https://bsb-bretten.de/wp-content/uploads/2021/10/210202_BSB_Schulhausrundgang.mp4"
-                      type="video/mp4"
-                    ></source>
-                  </video>
-                  <Typography variant="subtitle1">
-                    Tour durchs Schulhaus
-                  </Typography>
-                </Grid2>
-              </Stack>
-            </Box>
-          </Paper>
+            <img
+              src="/assets/category.png"
+              alt="Category"
+              style={{
+                width: 40,
+                height: 40,
+                marginRight: 12
+              }}
+            />
+            <Typography
+              variant="h4"
+              sx={{
+                fontWeight: "bold",
+                color: style.palette.primary.main
+              }}
+            >
+              Unser Team die BSB
+            </Typography>
+          </Stack>
           <Paper
             sx={{
               height: "fit-content",
               zIndex: 9999,
               padding: 2,
               mt: 4,
-              backgroundColor: theme.palette.background?.default,
+              pb: 7,
+              backgroundColor: theme.palette.background?.paper
             }}
           >
             <Container sx={{ padding: 1 }}>
-              <Grid2>
-                <Stack
-                  divider={
-                    <Divider
-                      orientation="horizontal"
-                      color={theme.palette.common.white}
-                      sx={{ width: 200 }}
-                    />
-                  }
-                  spacing={2}
-                >
-                  <Typography variant="h2" color={theme.palette.common.white}>
-                    <b>Unser Team</b>
-                  </Typography>
-                  <Typography variant="h4" color={theme.palette.common.white}>
-                    Die BSB
-                  </Typography>
-                </Stack>
-              </Grid2>
               <Stack
                 useFlexGap
                 spacing={{ xs: 2, sm: 6 }}
@@ -391,7 +345,7 @@ const MainContent = () => {
                 justifyContent="center"
                 alignItems="center"
                 sx={{
-                  flexWrap: "wrap",
+                  flexWrap: "wrap"
                 }}
               >
                 {members.map((member, index) => (
@@ -401,7 +355,7 @@ const MainContent = () => {
                       size={{
                         md: index < 2 ? 5 : 5,
                         lg: index < 2 ? 4 : 6,
-                        xl: index < 2 ? 4 : 5,
+                        xl: index < 2 ? 4 : 5
                       }}
                       display="flex"
                       justifyContent="center"
@@ -428,21 +382,21 @@ const MainContent = () => {
                               transition:
                                 "transform 0.3s ease, background-color 0.3s ease",
                               "&:hover": {
-                                transform: "scale(1.05)",
-                              },
+                                transform: "scale(1.05)"
+                              }
                             }}
                           ></Avatar>
                         </Link>
                         <Typography
                           variant="h5"
-                          color={theme.palette.common.white}
+                          color={theme.palette.primary.main}
                         >
                           {member.name}
                         </Typography>
                         <Typography
                           variant="subtitle1"
                           whiteSpace={"nowrap"}
-                          color={theme.palette.common.white}
+                          color={theme.palette.primary.main}
                         >
                           {member.title}
                         </Typography>
@@ -453,32 +407,104 @@ const MainContent = () => {
               </Stack>
             </Container>
           </Paper>
+          <Paper
+            sx={{ height: "fit-content", zIndex: 9999, padding: 2, mt: 4 }}
+          >
+            <Box>
+              <Stack
+                direction="row"
+                alignItems="center"
+                justifyContent="center"
+                sx={{
+                  pt: 1,
+                  marginBottom: 3,
+                  textAlign: "start"
+                }}
+              >
+                <img
+                  src="/assets/category.png"
+                  alt="Category"
+                  style={{
+                    width: 40,
+                    height: 40,
+                    marginRight: 12
+                  }}
+                />
+                <Typography
+                  variant="h4"
+                  sx={{
+                    fontWeight: "bold",
+                    color: style.palette.primary.main
+                  }}
+                >
+                  Videos
+                </Typography>
+              </Stack>
+              <Stack
+                useFlexGap
+                direction={
+                  useMediaQuery(theme.breakpoints.up("lg")) ? "row" : "column"
+                }
+                padding={1}
+                spacing={{ sm: 2, md: 6 }}
+                sx={{
+                  display: "flex",
+                  alignItems: useMediaQuery(theme.breakpoints.up("lg"))
+                    ? "flex-end"
+                    : "center",
+                  justifyContent: "center",
+                  flexWrap: "wrap"
+                }}
+              >
+                <Grid2 mr={2} justifyItems={"center"}>
+                  <video height={300} width={500} controls>
+                    <source
+                      src="https://bsb-bretten.de/wp-content/uploads/2021/10/210122_Imagefilm_BSB.mp4"
+                      type="video/mp4"
+                    ></source>
+                  </video>
+                  <Typography variant="subtitle1">Imagefilm</Typography>
+                </Grid2>
+                <Grid2 mr={2} justifyItems={"center"}>
+                  <Link href="https://www.unserebroschuere.de/video/20AA30190">
+                    <img
+                      src="https://bsb-bretten.de/wp-content/uploads/2023/02/thumbnail.jpg"
+                      height={290}
+                      width={500}
+                    ></img>
+                  </Link>
+                  <Typography variant="subtitle1">
+                    Wir bilden Zukunft
+                  </Typography>
+                </Grid2>
+                <Grid2 mr={2} justifyItems={"center"}>
+                  <video height={300} width={500} controls>
+                    <source
+                      src="https://bsb-bretten.de/wp-content/uploads/2021/10/210202_BSB_Schulhausrundgang.mp4"
+                      type="video/mp4"
+                    ></source>
+                  </video>
+                  <Typography variant="subtitle1">
+                    Tour durchs Schulhaus
+                  </Typography>
+                </Grid2>
+              </Stack>
+            </Box>
+          </Paper>
         </Grid2>
         <Grid2
           size={{ xs: 12, md: 4 }}
           sx={{
-            justifyItems: "center",
+            justifyItems: "center"
           }}
         >
-          <Box
-            width={"70%"}
-            alignItems="center"
-            justifyContent="center"
-            mt={2.5}
-          >
-            <Grid2 sx={{ textAlign: "center" }}>
-              <Typography variant="h5">
-                <b>Infobroschüre</b>
-              </Typography>
-            </Grid2>
-          </Box>
           <Box width={"90%"}>
             <Grid2
               height={"100%"}
               sx={{
                 mt: 6,
                 mb: 4,
-                justifyItems: "center",
+                justifyItems: "center"
               }}
             >
               <Typography
@@ -495,7 +521,7 @@ const MainContent = () => {
                 height={"100%"}
                 sx={{
                   mt: 4,
-                  justifyItems: "center",
+                  justifyItems: "center"
                 }}
               >
                 <ImageList
@@ -503,7 +529,7 @@ const MainContent = () => {
                   sx={{
                     width: "100%",
                     height: 600,
-                    transform: "translateZ(0)",
+                    transform: "translateZ(0)"
                   }}
                 >
                   {news.map((item) => {
@@ -530,7 +556,7 @@ const MainContent = () => {
               sx={{
                 mt: 6,
                 mb: 4,
-                justifyItems: "center",
+                justifyItems: "center"
               }}
             >
               <Typography
@@ -547,7 +573,7 @@ const MainContent = () => {
                 height={"100%"}
                 sx={{
                   mt: 4,
-                  justifyItems: "center",
+                  justifyItems: "center"
                 }}
               >
                 <ImageList
@@ -555,7 +581,7 @@ const MainContent = () => {
                   sx={{
                     width: "100%",
                     height: 600,
-                    transform: "translateZ(0)",
+                    transform: "translateZ(0)"
                   }}
                 >
                   <ImageListItem>

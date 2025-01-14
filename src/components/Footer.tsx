@@ -9,7 +9,7 @@ import {
   ListItemText,
   Link,
   useTheme,
-  useMediaQuery,
+  useMediaQuery
 } from "@mui/material";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 
@@ -21,7 +21,7 @@ export default function Footer() {
         height={useMediaQuery(theme.breakpoints.down("md")) ? 700 : 400}
         sx={{
           backgroundColor: theme.palette.primary?.light,
-          justifyContent: "center",
+          justifyContent: "center"
         }}
       >
         <Stack
@@ -32,7 +32,6 @@ export default function Footer() {
           justifyContent="center"
           alignItems="center"
         >
-          {/* Google Map */}
           <Grid2
             container
             justifyContent="center"
@@ -64,7 +63,7 @@ export default function Footer() {
                   <KeyboardArrowRightIcon
                     sx={{
                       color: theme.palette.primary?.main,
-                      fontSize: 22,
+                      fontSize: 22
                     }}
                   />
                 </ListItemIcon>
@@ -84,7 +83,7 @@ export default function Footer() {
                   <KeyboardArrowRightIcon
                     sx={{
                       color: theme.palette.primary?.main,
-                      fontSize: 22,
+                      fontSize: 22
                     }}
                   />
                 </ListItemIcon>
@@ -104,7 +103,7 @@ export default function Footer() {
                   <KeyboardArrowRightIcon
                     sx={{
                       color: theme.palette.primary?.main,
-                      fontSize: 22,
+                      fontSize: 22
                     }}
                   />
                 </ListItemIcon>
@@ -124,7 +123,7 @@ export default function Footer() {
                   <KeyboardArrowRightIcon
                     sx={{
                       color: theme.palette.primary?.main,
-                      fontSize: 22,
+                      fontSize: 22
                     }}
                   />
                 </ListItemIcon>
@@ -144,7 +143,7 @@ export default function Footer() {
                   <KeyboardArrowRightIcon
                     sx={{
                       color: theme.palette.primary?.main,
-                      fontSize: 22,
+                      fontSize: 22
                     }}
                   />
                 </ListItemIcon>
@@ -166,7 +165,7 @@ export default function Footer() {
       <Box
         sx={{
           backgroundColor: theme.palette.success?.main,
-          textAlign: "center",
+          textAlign: "center"
         }}
       >
         <Typography variant="h6" color={theme.palette.primary?.main}>

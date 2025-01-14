@@ -1,5 +1,4 @@
 import Navbar from "./components/Navbar";
-import Banner from "./components/Banner";
 import { useEffect, useState } from "react";
 import Fab from "@mui/material/Fab";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
@@ -10,7 +9,7 @@ function App() {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth",
+      behavior: "smooth"
     });
   };
   const [show, setShow] = useState(false);
@@ -26,7 +25,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <Banner />
+      <MainContent />
       {show && (
         <Fab
           variant="circular"
@@ -35,13 +34,12 @@ function App() {
             position: "fixed",
             bottom: 16,
             right: 16,
-            zIndex: 1000,
+            zIndex: 1000
           }}
         >
           <ArrowUpwardIcon />
         </Fab>
       )}
-      <MainContent />
       <Footer />
     </>
   );
