@@ -9,12 +9,10 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
-  Paper,
   Stack,
   Typography,
   useMediaQuery,
   useTheme,
-  IconButton,
 } from "@mui/material";
 import CircleIcon from "@mui/icons-material/Circle";
 import { members } from "./Resources";
@@ -62,262 +60,257 @@ const news = [
 
 const MainContent = () => {
   const theme = useTheme();
+  const isLargeScreen = useMediaQuery(theme.breakpoints.up("lg"));
 
   return (
     <>
       <Banner />
-      <Box sx={{ bgcolor: style.palette.background.paper }}>
+      <Box
+        sx={{
+          bgcolor: style.palette.background.paper,
+        }}
+      >
         <DepartmentComponent />
         <Grid2
           size={{
             xs: 12,
             md: 8,
           }}
-          sx={{ paddingLeft: 6, paddingRight: 6 }}
         >
-          <Paper
-            sx={{ height: "fit-content", zIndex: 9999, padding: 2, mt: 10 }}
+          <Box
+            display="flex"
+            flexDirection="column"
+            alignItems="center"
+            sx={{ mt: 10, mr: 15, ml: 15 }}
           >
-            <Box display="flex" flexDirection="column" alignItems="center">
-              <Typography
-                sx={{
-                  color: "darkblue",
-                  textAlign: "center",
-                  fontSize: "50px",
-                }}
+            <Typography
+              sx={{
+                color: "darkblue",
+                textAlign: "center",
+                fontSize: "50px",
+              }}
+            >
+              <i>
+                <b>Liebe Schülerinnen und Schüler</b>
+              </i>
+            </Typography>
+            <Typography
+              variant="subtitle1"
+              fontSize="large"
+              sx={{ textAlign: "center" }}
+            >
+              <br />
+              Die ersten sieben Wochen des Schuljahres liegen hinter uns und die
+              Zeit ist – wie immer – wie im Fluge vergangen. Erste Tests und
+              Klausuren sind geschrieben worden und nach den Herbstferien fällt
+              mit den ersten Abschlussprüfungen der Gewerblichen und
+              Kaufmännischen Abteilungen der Startschuss für unseren
+              alljährlichen Prüfungsmarathon.
+              <br />
+              <br /> Das gesamte Schulleitungsteam und alle Lehrerinnen und
+              Lehrer wünschen euch schöne Herbstferien bei hoffentlich gutem
+              Wetter. Genießt die freien Tage und erholt euch gut.
+              <br />
+              <br /> Wir freuen uns, wenn wir uns nach den Herbstferien wieder
+              sehen.
+              <br />
+              <br /> Nicole Roeder, Schulleiterin
+              <br />
+              <br />
+              <br /> Die Westerwaldschule Driedorf ist eine integrierte
+              Gesamtschule mit Grundstufe und hat für alle Kinder und
+              Jugendliche der Großgemeinde Driedorf und ihren Einzugsbereich
+              folgendes zu bieten: <br /> <br />
+              <List>
+                <ListItem>
+                  <ListItemIcon>
+                    <CircleIcon sx={{ color: "black", fontSize: 12 }} />
+                  </ListItemIcon>
+                  <ListItemText>
+                    <Typography>
+                      alle Bildungsgänge im gegliederten Schulsystem vom 1. bis
+                      zum 10. Schuljahr (Grundschule, Haupt-, Realschule und
+                      Gymnasium)
+                    </Typography>
+                  </ListItemText>
+                </ListItem>
+                <ListItem>
+                  <ListItemIcon>
+                    <CircleIcon sx={{ color: "black", fontSize: 12 }} />
+                  </ListItemIcon>
+                  <ListItemText>
+                    <Typography>
+                      Schwerpunktklassen (iPad-, Kreativ-, Natur-Klasse) ab dem
+                      5.Schuljahr
+                    </Typography>
+                  </ListItemText>
+                </ListItem>
+                <ListItem>
+                  <ListItemIcon>
+                    <CircleIcon sx={{ color: "black", fontSize: 12 }} />
+                  </ListItemIcon>
+                  <ListItemText>
+                    <Typography>
+                      eine leistungsbezogene Differenzierung in A-, B-, C-Kurse
+                      in den Fächern Mathematik und Englisch ab dem 6. Schuljahr
+                    </Typography>
+                  </ListItemText>
+                </ListItem>
+                <ListItem>
+                  <ListItemIcon>
+                    <CircleIcon sx={{ color: "black", fontSize: 12 }} />
+                  </ListItemIcon>
+                  <ListItemText>
+                    <Typography>
+                      eine leistungsbezogene Differenzierung in A-, B-, C-Kurse
+                      im Fach Deutsch ab dem 7. Schuljahr
+                    </Typography>
+                  </ListItemText>
+                </ListItem>
+                <ListItem>
+                  <ListItemIcon>
+                    <CircleIcon sx={{ color: "black", fontSize: 12 }} />
+                  </ListItemIcon>
+                  <ListItemText>
+                    <Typography>
+                      die Fremdsprachen Englisch, Französisch und Latein
+                    </Typography>
+                  </ListItemText>
+                </ListItem>
+                <ListItem>
+                  <ListItemIcon>
+                    <CircleIcon sx={{ color: "black", fontSize: 12 }} />
+                  </ListItemIcon>
+                  <ListItemText>
+                    <Typography>
+                      ein vielfältiges Angebot an Wahlpflichtkursen und
+                      Arbeitsgemscheinschaften
+                    </Typography>
+                  </ListItemText>
+                </ListItem>
+                <ListItem>
+                  <ListItemIcon>
+                    <CircleIcon sx={{ color: "black", fontSize: 12 }} />
+                  </ListItemIcon>
+                  <ListItemText>
+                    <Typography>
+                      abschlussbezogene Klassen, die das Ziel eines
+                      Hauptschulabschlusses, Realschulabschlusses oder der
+                      gymnasialen Eignung haben
+                    </Typography>
+                  </ListItemText>
+                </ListItem>
+                <ListItem>
+                  <ListItemIcon>
+                    <CircleIcon sx={{ color: "black", fontSize: 12 }} />
+                  </ListItemIcon>
+                  <ListItemText>
+                    <Typography>
+                      Pakt für den Nachmittag in der Grundschule
+                    </Typography>
+                  </ListItemText>
+                </ListItem>
+                <ListItem>
+                  <ListItemIcon>
+                    <CircleIcon sx={{ color: "black", fontSize: 12 }} />
+                  </ListItemIcon>
+                  <ListItemText>
+                    <Typography>
+                      individuelle Förderung durch innere und äußere
+                      Differenzierung
+                    </Typography>
+                  </ListItemText>
+                </ListItem>
+                <ListItem>
+                  <ListItemIcon>
+                    <CircleIcon sx={{ color: "black", fontSize: 12 }} />
+                  </ListItemIcon>
+                  <ListItemText>
+                    <Typography>einen wohnortnahen Schulstandort</Typography>
+                  </ListItemText>
+                </ListItem>
+              </List>
+            </Typography>
+          </Box>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              mt: 6,
+              mb: 10,
+              gap: 20,
+            }}
+          >
+            <Box
+              sx={{
+                width: "450px",
+                height: "650px",
+                position: "relative",
+                overflow: "hidden",
+                borderRadius: 4,
+                boxShadow: 8,
+                "&:hover img": {
+                  transform: "scale(1.05)",
+                  transition: "transform 0.3s ease",
+                },
+              }}
+            >
+              <Link
+                href="https://www.unserebroschuere.de/BSB/WebView/"
+                underline="none"
               >
-                <i>
-                  <b>Liebe Schülerinnen und Schüler</b>
-                </i>
-              </Typography>
-              <Typography
-                variant="subtitle1"
-                fontSize="large"
-                sx={{ textAlign: "center" }}
-              >
-                <br />
-                Die ersten sieben Wochen des Schuljahres liegen hinter uns und
-                die Zeit ist – wie immer – wie im Fluge vergangen. Erste Tests
-                und Klausuren sind geschrieben worden und nach den Herbstferien
-                fällt mit den ersten Abschlussprüfungen der Gewerblichen und
-                Kaufmännischen Abteilungen der Startschuss für unseren
-                alljährlichen Prüfungsmarathon.
-                <br />
-                <br /> Das gesamte Schulleitungsteam und alle Lehrerinnen und
-                Lehrer wünschen euch schöne Herbstferien bei hoffentlich gutem
-                Wetter. Genießt die freien Tage und erholt euch gut.
-                <br />
-                <br /> Wir freuen uns, wenn wir uns nach den Herbstferien wieder
-                sehen.
-                <br />
-                <br /> Nicole Roeder, Schulleiterin
-                <br />
-                <br />
-                <br /> Die Westerwaldschule Driedorf ist eine integrierte
-                Gesamtschule mit Grundstufe und hat für alle Kinder und
-                Jugendliche der Großgemeinde Driedorf und ihren Einzugsbereich
-                folgendes zu bieten: <br />
-                <List>
-                  <ListItem>
-                    <ListItemIcon>
-                      <CircleIcon sx={{ color: "black", fontSize: 12 }} />
-                    </ListItemIcon>
-                    <ListItemText>
-                      <Typography>
-                        alle Bildungsgänge im gegliederten Schulsystem vom 1.
-                        bis zum 10. Schuljahr (Grundschule, Haupt-, Realschule
-                        und Gymnasium)
-                      </Typography>
-                    </ListItemText>
-                  </ListItem>
-                  <ListItem>
-                    <ListItemIcon>
-                      <CircleIcon sx={{ color: "black", fontSize: 12 }} />
-                    </ListItemIcon>
-                    <ListItemText>
-                      <Typography>
-                        Schwerpunktklassen (iPad-, Kreativ-, Natur-Klasse) ab
-                        dem 5.Schuljahr
-                      </Typography>
-                    </ListItemText>
-                  </ListItem>
-                  <ListItem>
-                    <ListItemIcon>
-                      <CircleIcon sx={{ color: "black", fontSize: 12 }} />
-                    </ListItemIcon>
-                    <ListItemText>
-                      <Typography>
-                        eine leistungsbezogene Differenzierung in A-, B-,
-                        C-Kurse in den Fächern Mathematik und Englisch ab dem 6.
-                        Schuljahr
-                      </Typography>
-                    </ListItemText>
-                  </ListItem>
-                  <ListItem>
-                    <ListItemIcon>
-                      <CircleIcon sx={{ color: "black", fontSize: 12 }} />
-                    </ListItemIcon>
-                    <ListItemText>
-                      <Typography>
-                        eine leistungsbezogene Differenzierung in A-, B-,
-                        C-Kurse im Fach Deutsch ab dem 7. Schuljahr
-                      </Typography>
-                    </ListItemText>
-                  </ListItem>
-                  <ListItem>
-                    <ListItemIcon>
-                      <CircleIcon sx={{ color: "black", fontSize: 12 }} />
-                    </ListItemIcon>
-                    <ListItemText>
-                      <Typography>
-                        die Fremdsprachen Englisch, Französisch und Latein
-                      </Typography>
-                    </ListItemText>
-                  </ListItem>
-                  <ListItem>
-                    <ListItemIcon>
-                      <CircleIcon sx={{ color: "black", fontSize: 12 }} />
-                    </ListItemIcon>
-                    <ListItemText>
-                      <Typography>
-                        ein vielfältiges Angebot an Wahlpflichtkursen und
-                        Arbeitsgemscheinschaften
-                      </Typography>
-                    </ListItemText>
-                  </ListItem>
-                  <ListItem>
-                    <ListItemIcon>
-                      <CircleIcon sx={{ color: "black", fontSize: 12 }} />
-                    </ListItemIcon>
-                    <ListItemText>
-                      <Typography>
-                        abschlussbezogene Klassen, die das Ziel eines
-                        Hauptschulabschlusses, Realschulabschlusses oder der
-                        gymnasialen Eignung haben
-                      </Typography>
-                    </ListItemText>
-                  </ListItem>
-                  <ListItem>
-                    <ListItemIcon>
-                      <CircleIcon sx={{ color: "black", fontSize: 12 }} />
-                    </ListItemIcon>
-                    <ListItemText>
-                      <Typography>
-                        Pakt für den Nachmittag in der Grundschule
-                      </Typography>
-                    </ListItemText>
-                  </ListItem>
-                  <ListItem>
-                    <ListItemIcon>
-                      <CircleIcon sx={{ color: "black", fontSize: 12 }} />
-                    </ListItemIcon>
-                    <ListItemText>
-                      <Typography>
-                        individuelle Förderung durch innere und äußere
-                        Differenzierung
-                      </Typography>
-                    </ListItemText>
-                  </ListItem>
-                  <ListItem>
-                    <ListItemIcon>
-                      <CircleIcon sx={{ color: "black", fontSize: 12 }} />
-                    </ListItemIcon>
-                    <ListItemText>
-                      <Typography>einen wohnortnahen Schulstandort</Typography>
-                    </ListItemText>
-                  </ListItem>
-                </List>
-              </Typography>
+                <Grid2
+                  component="img"
+                  src="assets/Infobroschuere_bretten.jpg"
+                  sx={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "contain",
+                    display: "block",
+                  }}
+                />
+              </Link>
             </Box>
 
             <Box
               sx={{
-                display: "flex",
-                justifyContent: "center",
-                mt: 6,
-                mb: 6,
-                gap: 20,
+                width: "450px",
+                height: "650px",
+                position: "relative",
+                overflow: "hidden",
+                borderRadius: 4,
+                boxShadow: 8,
+                "&:hover img": {
+                  transform: "scale(1.05)",
+                  transition: "transform 0.3s ease",
+                },
               }}
             >
-              <Box
-                sx={{
-                  width: "450px",
-                  height: "650px",
-                  position: "relative",
-                  overflow: "hidden",
-                  borderRadius: 4,
-                  boxShadow: 8,
-                  "&:hover img": {
-                    transform: "scale(1.05)",
-                    transition: "transform 0.3s ease",
-                  },
-                }}
+              <Link
+                href="https://bsb-bretten.de/wp-content/uploads/2024/11/Infotag_2025.png"
+                underline="none"
               >
-                <Link
-                  href="https://www.unserebroschuere.de/BSB/WebView/"
-                  underline="none"
-                >
-                  <Grid2
-                    component="img"
-                    src="assets/Infobroschuere_bretten.jpg"
-                    sx={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "contain",
-                      display: "block",
-                    }}
-                  />
-                </Link>
-              </Box>
-
-              <Box
-                sx={{
-                  width: "450px",
-                  height: "650px",
-                  position: "relative",
-                  overflow: "hidden",
-                  borderRadius: 4,
-                  boxShadow: 8,
-                  "&:hover img": {
-                    transform: "scale(1.05)",
-                    transition: "transform 0.3s ease",
-                  },
-                }}
-              >
-                <Link
-                  href="https://bsb-bretten.de/wp-content/uploads/2024/11/Infotag_2025.png"
-                  underline="none"
-                >
-                  <Grid2
-                    component="img"
-                    src="assets/Infotag.png"
-                    sx={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "contain",
-                      display: "block",
-                    }}
-                  />
-                </Link>
-              </Box>
+                <Grid2
+                  component="img"
+                  src="assets/Infotag.png"
+                  sx={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "contain",
+                    display: "block",
+                  }}
+                />
+              </Link>
             </Box>
-          </Paper>
-          <Paper
-            sx={{
-              height: "fit-content",
-              zIndex: 9999,
-              padding: 2,
-              mt: 10,
-              pb: 7,
-              backgroundColor: theme.palette.background?.paper,
-            }}
-          >
+          </Box>
+
+          <Box sx={{ bgcolor: theme.palette.primary.main, pb: 10 }}>
             <Stack
               direction="row"
               alignItems="center"
               justifyContent="center"
               sx={{
-                pt: 1,
+                pt: 10,
                 pb: 3,
                 marginBottom: 3,
                 textAlign: "start",
@@ -336,7 +329,7 @@ const MainContent = () => {
                 variant="h4"
                 sx={{
                   fontWeight: "bold",
-                  color: style.palette.primary.main,
+                  color: theme.palette.common.white,
                 }}
               >
                 Unser Team die BSB
@@ -399,7 +392,7 @@ const MainContent = () => {
                           />
                         </Link>
                         <Typography
-                          color={theme.palette.primary.main}
+                          color={theme.palette.common.white}
                           sx={{
                             fontWeight: "bold",
                             textAlign: "left",
@@ -417,7 +410,7 @@ const MainContent = () => {
                         <Typography
                           variant="subtitle1"
                           whiteSpace="nowrap"
-                          color={theme.palette.primary.main}
+                          color={theme.palette.common.white}
                           sx={{
                             textAlign: "left",
                           }}
@@ -476,7 +469,7 @@ const MainContent = () => {
                           />
                         </Link>
                         <Typography
-                          color={theme.palette.primary.main}
+                          color={theme.palette.common.white}
                           sx={{
                             fontWeight: "bold",
                             textAlign: "left",
@@ -500,7 +493,7 @@ const MainContent = () => {
                             minHeight: 50,
                             lineHeight: 1.4,
                           }}
-                          color={theme.palette.primary.main}
+                          color={theme.palette.common.white}
                         >
                           {member.title.split("\n").map((part, index) => (
                             <span key={index}>
@@ -515,106 +508,106 @@ const MainContent = () => {
                 </Grid2>
               </Stack>
             </Container>
-          </Paper>
+          </Box>
 
-          <Paper
-            sx={{ height: "fit-content", zIndex: 9999, padding: 2, mt: 10 }}
-          >
-            <Box>
-              <Stack
-                direction="row"
-                alignItems="center"
-                justifyContent="center"
+          <Box>
+            <Stack
+              direction="row"
+              alignItems="center"
+              justifyContent="center"
+              sx={{
+                pt: 10,
+                pb: 3,
+                marginBottom: 3,
+                textAlign: "start",
+              }}
+            >
+              <img
+                src="/assets/category.png"
+                alt="Category"
+                style={{
+                  width: 40,
+                  height: 40,
+                  marginRight: 12,
+                }}
+              />
+              <Typography
+                variant="h4"
                 sx={{
-                  pt: 1,
-                  pb: 3,
-                  marginBottom: 3,
-                  textAlign: "start",
+                  fontWeight: "bold",
+                  color: style.palette.primary.main,
                 }}
               >
-                <img
-                  src="/assets/category.png"
-                  alt="Category"
-                  style={{
-                    width: 40,
-                    height: 40,
-                    marginRight: 12,
-                  }}
-                />
-                <Typography
-                  variant="h4"
-                  sx={{
-                    fontWeight: "bold",
-                    color: style.palette.primary.main,
-                  }}
+                Videos
+              </Typography>
+            </Stack>
+            <Stack
+              useFlexGap
+              direction={isLargeScreen ? "row" : "column"}
+              padding={1}
+              spacing={{ sm: 2, md: 6 }}
+              sx={{
+                display: "flex",
+                alignItems: isLargeScreen ? "flex-end" : "center",
+                justifyContent: "center",
+                flexWrap: "wrap",
+              }}
+            >
+              <Grid2 justifyItems="center" sx={{ textAlign: "center" }}>
+                <video
+                  height={isLargeScreen ? 300 : 200} // Adjust height on smaller screens
+                  width={isLargeScreen ? 500 : "100%"} // Make the video responsive on smaller screens
+                  controls
                 >
-                  Videos
+                  <source
+                    src="https://bsb-bretten.de/wp-content/uploads/2021/10/210122_Imagefilm_BSB.mp4"
+                    type="video/mp4"
+                  />
+                </video>
+                <Typography variant="subtitle1">Imagefilm</Typography>
+              </Grid2>
+              <Grid2 justifyItems="center" sx={{ textAlign: "center" }}>
+                <Link href="https://www.unserebroschuere.de/video/20AA30190">
+                  <img
+                    src="https://bsb-bretten.de/wp-content/uploads/2023/02/thumbnail.jpg"
+                    height={isLargeScreen ? 290 : 200} // Adjust height on smaller screens
+                    width={isLargeScreen ? 500 : "100%"} // Make the image responsive on smaller screens
+                    alt="Thumbnail"
+                  />
+                </Link>
+                <Typography variant="subtitle1">Wir bilden Zukunft</Typography>
+              </Grid2>
+              <Grid2 justifyItems="center" sx={{ textAlign: "center" }}>
+                <video
+                  height={isLargeScreen ? 300 : 200} // Adjust height on smaller screens
+                  width={isLargeScreen ? 500 : "100%"} // Make the video responsive on smaller screens
+                  controls
+                >
+                  <source
+                    src="https://bsb-bretten.de/wp-content/uploads/2021/10/210202_BSB_Schulhausrundgang.mp4"
+                    type="video/mp4"
+                  />
+                </video>
+                <Typography variant="subtitle1">
+                  Tour durchs Schulhaus
                 </Typography>
-              </Stack>
-              <Stack
-                useFlexGap
-                direction={
-                  useMediaQuery(theme.breakpoints.up("lg")) ? "row" : "column"
-                }
-                padding={1}
-                spacing={{ sm: 2, md: 6 }}
-                sx={{
-                  display: "flex",
-                  alignItems: useMediaQuery(theme.breakpoints.up("lg"))
-                    ? "flex-end"
-                    : "center",
-                  justifyContent: "center",
-                  flexWrap: "wrap",
-                }}
-              >
-                <Grid2 mr={2} justifyItems={"center"}>
-                  <video height={300} width={500} controls>
-                    <source
-                      src="https://bsb-bretten.de/wp-content/uploads/2021/10/210122_Imagefilm_BSB.mp4"
-                      type="video/mp4"
-                    ></source>
-                  </video>
-                  <Typography variant="subtitle1">Imagefilm</Typography>
-                </Grid2>
-                <Grid2 mr={2} justifyItems={"center"}>
-                  <Link href="https://www.unserebroschuere.de/video/20AA30190">
-                    <img
-                      src="https://bsb-bretten.de/wp-content/uploads/2023/02/thumbnail.jpg"
-                      height={290}
-                      width={500}
-                    ></img>
-                  </Link>
-                  <Typography variant="subtitle1">
-                    Wir bilden Zukunft
-                  </Typography>
-                </Grid2>
-                <Grid2 mr={2} justifyItems={"center"}>
-                  <video height={300} width={500} controls>
-                    <source
-                      src="https://bsb-bretten.de/wp-content/uploads/2021/10/210202_BSB_Schulhausrundgang.mp4"
-                      type="video/mp4"
-                    ></source>
-                  </video>
-                  <Typography variant="subtitle1">
-                    Tour durchs Schulhaus
-                  </Typography>
-                </Grid2>
-              </Stack>
-            </Box>
-          </Paper>
+              </Grid2>
+            </Stack>
+          </Box>
         </Grid2>
         <Grid2
           size={{ xs: 12, md: 4 }}
           sx={{
             justifyItems: "center",
+            pt: 10,
             mt: 10,
+            bgcolor: theme.palette.primary.main,
           }}
         >
           <Box width={"90%"}>
             <Grid2
               height={"100%"}
               sx={{
-                mt: 6,
                 mb: 4,
                 justifyItems: "center",
               }}
@@ -624,7 +617,6 @@ const MainContent = () => {
                 alignItems="center"
                 justifyContent="center"
                 sx={{
-                  pt: 1,
                   pb: 3,
                   marginBottom: 3,
                   textAlign: "start",
@@ -643,7 +635,7 @@ const MainContent = () => {
                   variant="h4"
                   sx={{
                     fontWeight: "bold",
-                    color: style.palette.primary.main,
+                    color: theme.palette.common.white,
                   }}
                 >
                   Was gibt es Neues?
@@ -659,6 +651,7 @@ const MainContent = () => {
               flexDirection: "column",
               alignItems: "center",
               padding: 2,
+              pb: 5,
             }}
           >
             {news.map((item, index) => (
@@ -692,6 +685,7 @@ const MainContent = () => {
                     "&:active": {
                       transform: "scale(1.2)",
                     },
+                    bgcolor: theme.palette.common.white,
                   }}
                 >
                   <Box
@@ -747,128 +741,6 @@ const MainContent = () => {
                 </Box>
               </Link>
             ))}
-          </Box>
-          <Box width={"90%"}>
-            <Grid2
-              height={"100%"}
-              sx={{
-                mt: 6,
-                pb: 10,
-                justifyItems: "center",
-              }}
-            >
-              <Stack
-                direction="row"
-                alignItems="center"
-                justifyContent="center"
-                sx={{
-                  pt: 2,
-                  pb: 6,
-                  marginBottom: 3,
-                  textAlign: "start",
-                }}
-              >
-                <img
-                  src="/assets/category.png"
-                  alt="Category"
-                  style={{
-                    width: 40,
-                    height: 40,
-                    marginRight: 12,
-                  }}
-                />
-                <Typography
-                  variant="h4"
-                  sx={{
-                    fontWeight: "bold",
-                    color: style.palette.primary.main,
-                  }}
-                >
-                  Soziale Medien
-                </Typography>
-              </Stack>
-              <Grid2
-                container
-                spacing={25}
-                justifyContent="center"
-                sx={{
-                  mt: 3,
-                }}
-              >
-                <IconButton
-                  component="a"
-                  href="https://www.facebook.com/bsbbretten"
-                  target="_blank"
-                  sx={{
-                    transition: "transform 0.3s ease-in-out",
-                    "&:hover": {
-                      transform: "scale(1.1)",
-                    },
-                    "&:active": {
-                      transform: "scale(1.2)",
-                    },
-                  }}
-                >
-                  <img
-                    src="\assets\facebookIc.png"
-                    alt="Facebook"
-                    style={{
-                      width: 250,
-                      height: 250,
-                      objectFit: "contain",
-                    }}
-                  />
-                </IconButton>
-                <IconButton
-                  component="a"
-                  href="https://www.instagram.com/bsb_bretten/"
-                  target="_blank"
-                  sx={{
-                    transition: "transform 0.3s ease-in-out",
-                    "&:hover": {
-                      transform: "scale(1.1)",
-                    },
-                    "&:active": {
-                      transform: "scale(1.2)",
-                    },
-                  }}
-                >
-                  <img
-                    src="\assets\instagramIc.png"
-                    alt="Instagram"
-                    style={{
-                      width: 250,
-                      height: 250,
-                      objectFit: "contain",
-                    }}
-                  />
-                </IconButton>
-                <IconButton
-                  component="a"
-                  href="https://stage.bio/berufliche-schulen-bretten"
-                  target="_blank"
-                  sx={{
-                    transition: "transform 0.3s ease-in-out",
-                    "&:hover": {
-                      transform: "scale(1.1)",
-                    },
-                    "&:active": {
-                      transform: "scale(1.2)",
-                    },
-                  }}
-                >
-                  <img
-                    src="\assets\stageIc.png"
-                    alt="Stage"
-                    style={{
-                      width: 250,
-                      height: 250,
-                      objectFit: "contain",
-                    }}
-                  />
-                </IconButton>
-              </Grid2>
-            </Grid2>
           </Box>
         </Grid2>
       </Box>

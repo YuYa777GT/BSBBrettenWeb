@@ -11,13 +11,19 @@ const Banner: React.FC = () => {
       display="flex"
       alignItems="center"
       justifyContent="center"
+      sx={{
+        "@media (max-width:600px)": {
+          height: "auto",
+          paddingBottom: 4,
+        },
+      }}
     >
       <Box
         component="img"
         src="/assets/banner.jpg"
         alt="Banner Background"
         sx={{
-          height: "100%",
+          height: "110%",
           width: "100%",
           objectFit: "cover",
           position: "absolute",
@@ -44,13 +50,15 @@ const Banner: React.FC = () => {
         sx={{
           zIndex: 1,
           textAlign: "center",
+          padding: { xs: "0 20px", sm: "0" },
         }}
       >
         <Typography
           sx={{
             color: "white",
             fontWeight: "bold",
-            fontSize: "90px",
+            fontSize: { xs: "40px", sm: "90px" },
+            mt: 5,
           }}
         >
           Willkommen an den <br /> Beruflichen Schulen Bretten
@@ -64,8 +72,8 @@ const Banner: React.FC = () => {
               mt: 3,
               mb: 3,
               justifyContent: "center",
-              padding: 2,
-              fontSize: "20px",
+              padding: { xs: "12px 24px", sm: "16px 32px" }, // Adjust button padding for small screens
+              fontSize: { xs: "16px", sm: "20px" }, // Adjust font size for small screens
               borderColor: "white",
               color: "white",
               borderWidth: "3px",
@@ -87,8 +95,8 @@ const Banner: React.FC = () => {
             variant="outlined"
             sx={{
               justifyContent: "center",
-              padding: 2,
-              fontSize: "20px",
+              padding: { xs: "12px 24px", sm: "16px 32px" }, // Adjust button padding for small screens
+              fontSize: { xs: "16px", sm: "20px" }, // Adjust font size for small screens
               borderColor: "white",
               color: "white",
               borderWidth: "3px",

@@ -27,6 +27,8 @@ const DepartmentComponent = () => {
     "#218d8f",
   ];
 
+  const isMobile = useMediaQuery(style.breakpoints.down("sm"));
+
   return (
     <>
       <Stack
@@ -82,7 +84,7 @@ const DepartmentComponent = () => {
             }}
           >
             <Grid2
-              height={300}
+              height={isMobile ? "150px" : "300px"}
               width={"100%"}
               component={"button"}
               borderRadius={5}
@@ -92,10 +94,10 @@ const DepartmentComponent = () => {
                 backgroundColor: backgroundColors[index],
                 display: "flex",
                 flexDirection: "column",
-                alignItems: "flex-start",
-                justifyContent: "flex-start",
-                padding: "16px",
-                textAlign: "start",
+                alignItems: "center", // Center the icon on mobile
+                justifyContent: "center", // Center the icon vertically
+                padding: isMobile ? "0px" : "16px", // Padding remains same but adjust if needed
+                textAlign: "center", // Align text centrally when visible
                 border: 0,
                 transition: "transform 0.3s ease, background-color 0.3s ease",
                 "&:hover": {
@@ -185,17 +187,19 @@ const DepartmentComponent = () => {
                   )}
                 </Grid2>
 
-                <Typography
-                  sx={{
-                    color: textColors[index],
-                    fontWeight: "bold",
-                    textAlign: "center",
-                    marginTop: "8px",
-                    fontSize: "25px",
-                  }}
-                >
-                  {item.name}
-                </Typography>
+                {!isMobile && (
+                  <Typography
+                    sx={{
+                      color: textColors[index],
+                      fontWeight: "bold",
+                      textAlign: "center",
+                      marginTop: "8px",
+                      fontSize: "25px",
+                    }}
+                  >
+                    {item.name}
+                  </Typography>
+                )}
               </Stack>
             </Grid2>
           </Grid2>

@@ -150,12 +150,10 @@ const Navbar: React.FC = () => {
               <img
                 src="\assets\logo.png"
                 alt="Logo"
-                width={110}
-                height={110}
+                width={70}
+                height={70}
                 style={{
                   cursor: "pointer",
-                  marginLeft: 30,
-                  padding: 20,
                 }}
               />
             </IconButton>
@@ -400,6 +398,30 @@ const Navbar: React.FC = () => {
                 style={{
                   width: 40,
                   height: 40,
+                  objectFit: "contain",
+                }}
+              />
+            </IconButton>
+            <IconButton
+              component="a"
+              href="https://stage.bio/berufliche-schulen-bretten"
+              target="_blank"
+              sx={{
+                transition: "transform 0.3s ease-in-out",
+                "&:hover": {
+                  transform: "scale(1.1)",
+                },
+                "&:active": {
+                  transform: "scale(1.2)",
+                },
+              }}
+            >
+              <img
+                src="\assets\stageIc.png"
+                alt="WebUnite"
+                style={{
+                  width: 35,
+                  height: 35,
                   objectFit: "contain",
                 }}
               />
