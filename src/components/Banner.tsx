@@ -70,9 +70,13 @@ const Banner: React.FC = () => {
               color: "white",
               borderWidth: "3px",
               "&:hover": {
+                transform: "scale(1.1)",
                 backgroundColor: "white",
                 color: (theme) => theme.palette.primary.main,
                 borderColor: "white",
+              },
+              "&:active": {
+                transform: "scale(1.2)",
               },
             }}
           >
@@ -89,9 +93,13 @@ const Banner: React.FC = () => {
               color: "white",
               borderWidth: "3px",
               "&:hover": {
+                transform: "scale(1.1)",
                 backgroundColor: "white",
                 color: (theme) => theme.palette.primary.main,
                 borderColor: "white",
+              },
+              "&:active": {
+                transform: "scale(1.2)",
               },
             }}
           >

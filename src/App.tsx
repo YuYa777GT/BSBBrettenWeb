@@ -9,7 +9,7 @@ function App() {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth"
+      behavior: "smooth",
     });
   };
   const [show, setShow] = useState(false);
@@ -34,7 +34,7 @@ function App() {
             position: "fixed",
             bottom: 16,
             right: 16,
-            zIndex: 1000
+            zIndex: 1000,
           }}
         >
           <ArrowUpwardIcon />

@@ -131,17 +131,34 @@ const Navbar: React.FC = () => {
           }}
         >
           <Toolbar disableGutters sx={{ width: "100%", mt: 1, mb: 1 }}>
-            <img
-              src="\assets\logo.png"
-              alt="Logo"
-              width={100}
-              height={100}
-              style={{
-                cursor: "pointer",
-                marginLeft: 30,
-                padding: 20,
+            <IconButton
+              component="a"
+              href="/"
+              disableRipple
+              sx={{
+                transition: "transform 0.3s ease-in-out",
+                outline: "none",
+                "&:hover": {
+                  transform: "scale(1.1)",
+                },
+                "&:active": {
+                  transform: "scale(1.2)",
+                },
               }}
-            />
+              onClick={() => (window.location.href = "/")} // Navigate to "/"
+            >
+              <img
+                src="\assets\logo.png"
+                alt="Logo"
+                width={110}
+                height={110}
+                style={{
+                  cursor: "pointer",
+                  marginLeft: 30,
+                  padding: 20,
+                }}
+              />
+            </IconButton>
 
             {!isSmallScreen ? (
               <Box
@@ -343,6 +360,15 @@ const Navbar: React.FC = () => {
               component="a"
               href="https://www.facebook.com/bsbbretten"
               target="_blank"
+              sx={{
+                transition: "transform 0.3s ease-in-out",
+                "&:hover": {
+                  transform: "scale(1.1)",
+                },
+                "&:active": {
+                  transform: "scale(1.2)",
+                },
+              }}
             >
               <img
                 src="\assets\facebookIc.png"
@@ -358,6 +384,15 @@ const Navbar: React.FC = () => {
               component="a"
               href="https://www.instagram.com/bsb_bretten/"
               target="_blank"
+              sx={{
+                transition: "transform 0.3s ease-in-out",
+                "&:hover": {
+                  transform: "scale(1.1)",
+                },
+                "&:active": {
+                  transform: "scale(1.2)",
+                },
+              }}
             >
               <img
                 src="\assets\instagramIc.png"
@@ -373,6 +408,15 @@ const Navbar: React.FC = () => {
               component="a"
               href="https://bw.schule/login"
               target="_blank"
+              sx={{
+                transition: "transform 0.3s ease-in-out",
+                "&:hover": {
+                  transform: "scale(1.1)",
+                },
+                "&:active": {
+                  transform: "scale(1.2)",
+                },
+              }}
             >
               <img
                 src="\assets\moodleIc.png"
@@ -388,6 +432,15 @@ const Navbar: React.FC = () => {
               component="a"
               href="https://webuntis.com/#/basic/login"
               target="_blank"
+              sx={{
+                transition: "transform 0.3s ease-in-out",
+                "&:hover": {
+                  transform: "scale(1.1)",
+                },
+                "&:active": {
+                  transform: "scale(1.2)",
+                },
+              }}
             >
               <img
                 src="\assets\webUntisIc.png"

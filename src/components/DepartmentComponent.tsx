@@ -101,6 +101,9 @@ const DepartmentComponent = () => {
                 "&:hover": {
                   transform: "scale(1.05)",
                 },
+                "&:active": {
+                  transform: "scale(1.2)",
+                },
               }}
             >
               <Stack

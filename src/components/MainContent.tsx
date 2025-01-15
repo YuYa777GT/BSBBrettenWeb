@@ -3,11 +3,7 @@ import {
   Avatar,
   Box,
   Container,
-  Divider,
   Grid2,
-  ImageList,
-  ImageListItem,
-  ImageListItemBar,
   Link,
   List,
   ListItem,
@@ -17,10 +13,11 @@ import {
   Stack,
   Typography,
   useMediaQuery,
-  useTheme
+  useTheme,
+  IconButton,
 } from "@mui/material";
 import CircleIcon from "@mui/icons-material/Circle";
-import InstagramEmbed, { members } from "./Resources";
+import { members } from "./Resources";
 import Banner from "./Banner";
 import style from "../style";
 
@@ -29,32 +26,38 @@ const news = [
     url: "https://bsb-bretten.de/2024/10/11/https-bsb-bretten-de-wp-content-uploads-2024-10-jungerukrainerfsj-jpeg/",
     image:
       "https://bsb-bretten.de/wp-content/uploads/2024/10/JungerUkrainerFSJ-300x225.jpeg",
-    title: "Junger Ukrainer möchte Fachinformatiker werden"
+    subTitle: "Junger Ukrainer möchte Fachinformatiker werden",
+    title: "Erstmals FSJ digital an den Beruflichen Schulen Bretten",
   },
   {
     url: "https://bsb-bretten.de/2024/07/28/verabschiedung-von-markus-bader-an-den-bsb/",
     image:
       "https://bsb-bretten.de/wp-content/uploads/2024/07/240726_Verabschiedung-Bader-300x195.jpeg",
-    title: "Verabschiedung von Markus Bader an den BSB"
+    subTitle: "Verabschiedung von Markus Bader an den BSB",
+    title: "Ein sehr aufmerksamer und sehr vertrauensvoller Pädagoge",
   },
   {
     url: "https://bsb-bretten.de/2024/07/16/7904/",
     image:
       "https://bsb-bretten.de/wp-content/uploads/2024/07/240716_Abschlussfeier_02-300x170.jpeg",
-    title: "Entlassungsfeier der BSB erstmals im Hallenzentrum „Grüner“"
+    subTitle: "Entlassungsfeier der BSB erstmals im Hallenzentrum „Grüner“",
+    title:
+      "Nicht weghören, sondern zuhören muss das Motto für die Zukunft sein",
   },
   {
     url: "https://bsb-bretten.de/2024/07/15/chemiekurs-setzt-theoriet-in-praxis-um/",
     image:
       "https://bsb-bretten.de/wp-content/uploads/2024/07/240715_ChemieBach_01-300x169.jpg",
-    title: "Chemiekurs setzt Theorie in Praxis um"
+    subTitle: "Chemiekurs setzt Theorie in Praxis um",
+    title: "Spannende Entdeckungen am Gölshäuser Dorfbach",
   },
   {
     url: "https://bsb-bretten.de/2024/07/12/melanchthon-schuelerpreis-mit-750-euro-fuer-laura-katz-sgg/",
     image:
       "https://bsb-bretten.de/wp-content/uploads/2024/07/240711_Melanchthonpreis-225x300.jpg",
-    title: "Melanchthon-Schülerpreis mit 750 Euro für Laura Katz (SGG)"
-  }
+    subTitle: "Melanchthon-Schülerpreis mit 750 Euro für Laura Katz (SGG)",
+    title: "In Sachen Ehrenamt ein Vorbild für die gesamte Schülerschaft",
+  },
 ];
 
 const MainContent = () => {
@@ -68,17 +71,19 @@ const MainContent = () => {
         <Grid2
           size={{
             xs: 12,
-            md: 8
+            md: 8,
           }}
           sx={{ paddingLeft: 6, paddingRight: 6 }}
         >
-          <Paper sx={{ height: "fit-content", zIndex: 9999, padding: 2 }}>
+          <Paper
+            sx={{ height: "fit-content", zIndex: 9999, padding: 2, mt: 10 }}
+          >
             <Box display="flex" flexDirection="column" alignItems="center">
               <Typography
                 sx={{
                   color: "darkblue",
                   textAlign: "center",
-                  fontSize: "50px"
+                  fontSize: "50px",
                 }}
               >
                 <i>
@@ -231,7 +236,7 @@ const MainContent = () => {
                 justifyContent: "center",
                 mt: 6,
                 mb: 6,
-                gap: 20
+                gap: 20,
               }}
             >
               <Box
@@ -244,8 +249,8 @@ const MainContent = () => {
                   boxShadow: 8,
                   "&:hover img": {
                     transform: "scale(1.05)",
-                    transition: "transform 0.3s ease"
-                  }
+                    transition: "transform 0.3s ease",
+                  },
                 }}
               >
                 <Link
@@ -259,7 +264,7 @@ const MainContent = () => {
                       width: "100%",
                       height: "100%",
                       objectFit: "contain",
-                      display: "block"
+                      display: "block",
                     }}
                   />
                 </Link>
@@ -275,8 +280,8 @@ const MainContent = () => {
                   boxShadow: 8,
                   "&:hover img": {
                     transform: "scale(1.05)",
-                    transition: "transform 0.3s ease"
-                  }
+                    transition: "transform 0.3s ease",
+                  },
                 }}
               >
                 <Link
@@ -290,53 +295,53 @@ const MainContent = () => {
                       width: "100%",
                       height: "100%",
                       objectFit: "contain",
-                      display: "block"
+                      display: "block",
                     }}
                   />
                 </Link>
               </Box>
             </Box>
           </Paper>
-          <Stack
-            direction="row"
-            alignItems="center"
-            justifyContent="center"
-            sx={{
-              pt: 15,
-              marginBottom: 3,
-              textAlign: "start",
-              pb: 3
-            }}
-          >
-            <img
-              src="/assets/category.png"
-              alt="Category"
-              style={{
-                width: 40,
-                height: 40,
-                marginRight: 12
-              }}
-            />
-            <Typography
-              variant="h4"
-              sx={{
-                fontWeight: "bold",
-                color: style.palette.primary.main
-              }}
-            >
-              Unser Team die BSB
-            </Typography>
-          </Stack>
           <Paper
             sx={{
               height: "fit-content",
               zIndex: 9999,
               padding: 2,
-              mt: 4,
+              mt: 10,
               pb: 7,
-              backgroundColor: theme.palette.background?.paper
+              backgroundColor: theme.palette.background?.paper,
             }}
           >
+            <Stack
+              direction="row"
+              alignItems="center"
+              justifyContent="center"
+              sx={{
+                pt: 1,
+                pb: 3,
+                marginBottom: 3,
+                textAlign: "start",
+              }}
+            >
+              <img
+                src="/assets/category.png"
+                alt="Category"
+                style={{
+                  width: 40,
+                  height: 40,
+                  marginRight: 12,
+                }}
+              />
+              <Typography
+                variant="h4"
+                sx={{
+                  fontWeight: "bold",
+                  color: style.palette.primary.main,
+                }}
+              >
+                Unser Team die BSB
+              </Typography>
+            </Stack>
             <Container sx={{ padding: 1 }}>
               <Stack
                 useFlexGap
@@ -345,33 +350,35 @@ const MainContent = () => {
                 justifyContent="center"
                 alignItems="center"
                 sx={{
-                  flexWrap: "wrap"
+                  flexWrap: "wrap",
                 }}
               >
-                {members.map((member, index) => (
-                  <>
+                <Grid2
+                  container
+                  spacing={2}
+                  sx={{ flexWrap: "wrap", justifyContent: "center" }}
+                >
+                  {members.slice(0, 2).map((member, index) => (
                     <Grid2
                       key={index}
-                      size={{
-                        md: index < 2 ? 5 : 5,
-                        lg: index < 2 ? 4 : 6,
-                        xl: index < 2 ? 4 : 5
+                      sx={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        textAlign: "center",
+                        width: "100%",
+                        "@media (min-width:600px)": {
+                          width: "48%",
+                        },
+                        "@media (min-width:900px)": {
+                          width: "48%",
+                        },
+                        "@media (min-width:1200px)": {
+                          width: "48%",
+                        },
                       }}
-                      display="flex"
-                      justifyContent="center"
-                      alignItems="center"
-                      sx={{ textAlign: "center" }}
                     >
-                      <Stack
-                        direction="column"
-                        divider={
-                          <Divider
-                            orientation="horizontal"
-                            color={theme.palette.common.white}
-                          ></Divider>
-                        }
-                        spacing={1}
-                      >
+                      <Stack direction="column" spacing={1.5}>
                         <Link underline="none">
                           <Avatar
                             src={member.image}
@@ -379,36 +386,139 @@ const MainContent = () => {
                               mb: 1,
                               width: 200,
                               height: 200,
+                              borderRadius: "10px",
                               transition:
                                 "transform 0.3s ease, background-color 0.3s ease",
                               "&:hover": {
-                                transform: "scale(1.05)"
-                              }
+                                transform: "scale(1.05)",
+                              },
+                              "&:active": {
+                                transform: "scale(1.2)",
+                              },
                             }}
-                          ></Avatar>
+                          />
                         </Link>
                         <Typography
-                          variant="h5"
                           color={theme.palette.primary.main}
+                          sx={{
+                            fontWeight: "bold",
+                            textAlign: "left",
+                            fontSize: "27px",
+                            lineHeight: 1.3,
+                          }}
                         >
-                          {member.name}
+                          {member.name.split(" ").map((part, index) => (
+                            <span key={index}>
+                              {part}
+                              {index === 0 && <br />}{" "}
+                            </span>
+                          ))}
                         </Typography>
                         <Typography
                           variant="subtitle1"
-                          whiteSpace={"nowrap"}
+                          whiteSpace="nowrap"
                           color={theme.palette.primary.main}
+                          sx={{
+                            textAlign: "left",
+                          }}
                         >
                           {member.title}
                         </Typography>
                       </Stack>
                     </Grid2>
-                  </>
-                ))}
+                  ))}
+                </Grid2>
+
+                <Grid2
+                  container
+                  spacing={2}
+                  sx={{ flexWrap: "wrap", justifyContent: "center" }}
+                >
+                  {members.slice(2).map((member, index) => (
+                    <Grid2
+                      key={index}
+                      sx={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "flex-start",
+                        textAlign: "center",
+                        width: "100%",
+                        height: "auto",
+                        "@media (min-width:600px)": {
+                          width: "29.7%",
+                        },
+                        "@media (min-width:900px)": {
+                          width: "25.7%",
+                        },
+                        "@media (min-width:1200px)": {
+                          width: "18.7%",
+                        },
+                      }}
+                    >
+                      <Stack direction="column" spacing={1.5}>
+                        <Link underline="none">
+                          <Avatar
+                            src={member.image}
+                            sx={{
+                              mb: 1,
+                              width: 200,
+                              height: 200,
+                              borderRadius: "10px",
+                              transition:
+                                "transform 0.3s ease, background-color 0.3s ease",
+                              "&:hover": {
+                                transform: "scale(1.05)",
+                              },
+                              "&:active": {
+                                transform: "scale(1.2)",
+                              },
+                            }}
+                          />
+                        </Link>
+                        <Typography
+                          color={theme.palette.primary.main}
+                          sx={{
+                            fontWeight: "bold",
+                            textAlign: "left",
+                            fontSize: "27px",
+                            lineHeight: 1.3,
+                            minHeight: 54,
+                          }}
+                        >
+                          {member.name.split(" ").map((part, index) => (
+                            <span key={index}>
+                              {part}
+                              {index === 0 && <br />}
+                            </span>
+                          ))}
+                        </Typography>
+                        <Typography
+                          variant="subtitle1"
+                          whiteSpace="nowrap"
+                          sx={{
+                            textAlign: "left",
+                            minHeight: 50,
+                            lineHeight: 1.4,
+                          }}
+                          color={theme.palette.primary.main}
+                        >
+                          {member.title.split("\n").map((part, index) => (
+                            <span key={index}>
+                              {part}
+                              {index < 2 && <br />}
+                            </span>
+                          ))}
+                        </Typography>
+                      </Stack>
+                    </Grid2>
+                  ))}
+                </Grid2>
               </Stack>
             </Container>
           </Paper>
+
           <Paper
-            sx={{ height: "fit-content", zIndex: 9999, padding: 2, mt: 4 }}
+            sx={{ height: "fit-content", zIndex: 9999, padding: 2, mt: 10 }}
           >
             <Box>
               <Stack
@@ -417,8 +527,9 @@ const MainContent = () => {
                 justifyContent="center"
                 sx={{
                   pt: 1,
+                  pb: 3,
                   marginBottom: 3,
-                  textAlign: "start"
+                  textAlign: "start",
                 }}
               >
                 <img
@@ -427,14 +538,14 @@ const MainContent = () => {
                   style={{
                     width: 40,
                     height: 40,
-                    marginRight: 12
+                    marginRight: 12,
                   }}
                 />
                 <Typography
                   variant="h4"
                   sx={{
                     fontWeight: "bold",
-                    color: style.palette.primary.main
+                    color: style.palette.primary.main,
                   }}
                 >
                   Videos
@@ -453,7 +564,7 @@ const MainContent = () => {
                     ? "flex-end"
                     : "center",
                   justifyContent: "center",
-                  flexWrap: "wrap"
+                  flexWrap: "wrap",
                 }}
               >
                 <Grid2 mr={2} justifyItems={"center"}>
@@ -495,7 +606,8 @@ const MainContent = () => {
         <Grid2
           size={{ xs: 12, md: 4 }}
           sx={{
-            justifyItems: "center"
+            justifyItems: "center",
+            mt: 10,
           }}
         >
           <Box width={"90%"}>
@@ -504,104 +616,259 @@ const MainContent = () => {
               sx={{
                 mt: 6,
                 mb: 4,
-                justifyItems: "center"
+                justifyItems: "center",
               }}
             >
-              <Typography
-                variant="h4"
-                color={theme.palette.background?.default}
-              >
-                Neuigkeiten
-              </Typography>
-            </Grid2>
-          </Box>
-          <Box width={"90%"} boxShadow={8} borderRadius={2}>
-            <Paper sx={{ p: 2, mb: 4, zIndex: 999, borderRadius: 2 }}>
-              <Grid2
-                height={"100%"}
+              <Stack
+                direction="row"
+                alignItems="center"
+                justifyContent="center"
                 sx={{
-                  mt: 4,
-                  justifyItems: "center"
+                  pt: 1,
+                  pb: 3,
+                  marginBottom: 3,
+                  textAlign: "start",
                 }}
               >
-                <ImageList
-                  cols={1}
+                <img
+                  src="/assets/category.png"
+                  alt="Category"
+                  style={{
+                    width: 40,
+                    height: 40,
+                    marginRight: 12,
+                  }}
+                />
+                <Typography
+                  variant="h4"
                   sx={{
-                    width: "100%",
-                    height: 600,
-                    transform: "translateZ(0)"
+                    fontWeight: "bold",
+                    color: style.palette.primary.main,
                   }}
                 >
-                  {news.map((item) => {
-                    return (
-                      <>
-                        <Link href={item.url}>
-                          <ImageListItem>
-                            <img src={item.image}></img>
-                            <ImageListItemBar
-                              title={item.title}
-                            ></ImageListItemBar>
-                          </ImageListItem>
-                        </Link>
-                      </>
-                    );
-                  })}
-                </ImageList>
-              </Grid2>
-            </Paper>
+                  Was gibt es Neues?
+                </Typography>
+              </Stack>
+            </Grid2>
+          </Box>
+          <Box
+            width={"90%"}
+            sx={{
+              overflow: "hidden",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              padding: 2,
+            }}
+          >
+            {news.map((item, index) => (
+              <Link
+                key={index}
+                href={item.url}
+                underline="none"
+                sx={{
+                  width: "100%",
+                  alignItems: "center",
+                  display: "flex",
+                  flexDirection: "column",
+                }}
+              >
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: "row",
+                    alignItems: "center",
+                    justifyContent: "flex-start",
+                    gap: 3,
+                    width: "80%",
+                    marginBottom: 4,
+                    boxShadow: 2,
+                    borderRadius: 2,
+                    transition: "all 0.3s ease-in-out",
+                    "&:hover": {
+                      boxShadow: 8,
+                      transform: "scale(1.1)",
+                    },
+                    "&:active": {
+                      transform: "scale(1.2)",
+                    },
+                  }}
+                >
+                  <Box
+                    sx={{
+                      width: 370,
+                      height: 200,
+                      overflow: "hidden",
+                      borderRadius: 2,
+                      position: "relative",
+                    }}
+                  >
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                      }}
+                    />
+                  </Box>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "center",
+                      flex: 1,
+                    }}
+                  >
+                    <Typography
+                      sx={{
+                        fontSize: "0.9rem",
+                        fontWeight: "bold",
+                        color: theme.palette.primary.main,
+                        textAlign: "left",
+                        marginTop: 1,
+                      }}
+                    >
+                      {item.subTitle}
+                    </Typography>
+                    <Typography
+                      sx={{
+                        fontSize: "1.7rem",
+                        fontWeight: "bold",
+                        color: theme.palette.primary.main,
+                        textAlign: "left",
+                        marginTop: 1,
+                      }}
+                    >
+                      {item.title}
+                    </Typography>
+                  </Box>
+                </Box>
+              </Link>
+            ))}
           </Box>
           <Box width={"90%"}>
             <Grid2
               height={"100%"}
               sx={{
                 mt: 6,
-                mb: 4,
-                justifyItems: "center"
+                pb: 10,
+                justifyItems: "center",
               }}
             >
-              <Typography
-                variant="h4"
-                color={theme.palette.background?.default}
-              >
-                Soziale Medien
-              </Typography>
-            </Grid2>
-          </Box>
-          <Box width={"90%"} boxShadow={8}>
-            <Paper sx={{ p: 2, zIndex: 999 }}>
-              <Grid2
-                height={"100%"}
+              <Stack
+                direction="row"
+                alignItems="center"
+                justifyContent="center"
                 sx={{
-                  mt: 4,
-                  justifyItems: "center"
+                  pt: 2,
+                  pb: 6,
+                  marginBottom: 3,
+                  textAlign: "start",
                 }}
               >
-                <ImageList
-                  cols={1}
+                <img
+                  src="/assets/category.png"
+                  alt="Category"
+                  style={{
+                    width: 40,
+                    height: 40,
+                    marginRight: 12,
+                  }}
+                />
+                <Typography
+                  variant="h4"
                   sx={{
-                    width: "100%",
-                    height: 600,
-                    transform: "translateZ(0)"
+                    fontWeight: "bold",
+                    color: style.palette.primary.main,
                   }}
                 >
-                  <ImageListItem>
-                    <InstagramEmbed />
-                  </ImageListItem>
-                  <ImageListItem>
-                    <InstagramEmbed />
-                  </ImageListItem>
-                  <ImageListItem>
-                    <InstagramEmbed />
-                  </ImageListItem>
-                  <ImageListItem>
-                    <InstagramEmbed />
-                  </ImageListItem>
-                  <ImageListItem>
-                    <InstagramEmbed />
-                  </ImageListItem>
-                </ImageList>
+                  Soziale Medien
+                </Typography>
+              </Stack>
+              <Grid2
+                container
+                spacing={25}
+                justifyContent="center"
+                sx={{
+                  mt: 3,
+                }}
+              >
+                <IconButton
+                  component="a"
+                  href="https://www.facebook.com/bsbbretten"
+                  target="_blank"
+                  sx={{
+                    transition: "transform 0.3s ease-in-out",
+                    "&:hover": {
+                      transform: "scale(1.1)",
+                    },
+                    "&:active": {
+                      transform: "scale(1.2)",
+                    },
+                  }}
+                >
+                  <img
+                    src="\assets\facebookIc.png"
+                    alt="Facebook"
+                    style={{
+                      width: 250,
+                      height: 250,
+                      objectFit: "contain",
+                    }}
+                  />
+                </IconButton>
+                <IconButton
+                  component="a"
+                  href="https://www.instagram.com/bsb_bretten/"
+                  target="_blank"
+                  sx={{
+                    transition: "transform 0.3s ease-in-out",
+                    "&:hover": {
+                      transform: "scale(1.1)",
+                    },
+                    "&:active": {
+                      transform: "scale(1.2)",
+                    },
+                  }}
+                >
+                  <img
+                    src="\assets\instagramIc.png"
+                    alt="Instagram"
+                    style={{
+                      width: 250,
+                      height: 250,
+                      objectFit: "contain",
+                    }}
+                  />
+                </IconButton>
+                <IconButton
+                  component="a"
+                  href="https://stage.bio/berufliche-schulen-bretten"
+                  target="_blank"
+                  sx={{
+                    transition: "transform 0.3s ease-in-out",
+                    "&:hover": {
+                      transform: "scale(1.1)",
+                    },
+                    "&:active": {
+                      transform: "scale(1.2)",
+                    },
+                  }}
+                >
+                  <img
+                    src="\assets\stageIc.png"
+                    alt="Stage"
+                    style={{
+                      width: 250,
+                      height: 250,
+                      objectFit: "contain",
+                    }}
+                  />
+                </IconButton>
               </Grid2>
-            </Paper>
+            </Grid2>
           </Box>
         </Grid2>
       </Box>
