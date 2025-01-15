@@ -5,7 +5,6 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
-import style from "../style";
 import { useEffect, useState } from "react";
 import {
   Drawer,
@@ -13,87 +12,15 @@ import {
   ListItemButton,
   ListItemText,
   useMediaQuery,
-  useTheme,
+  useTheme
 } from "@mui/material";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-
-const pages = [
-  {
-    title: "AKTUELLES",
-    link: "/",
-  },
-  {
-    title: "SCHULGEMEINDE",
-    dropdownItems: [
-      { page: "Speiseplan", link: "/" },
-      { page: "Schulleitung", link: "/" },
-      { page: "Sekreteriat", link: "/" },
-      { page: "Kollegium", link: "/" },
-    ],
-  },
-  {
-    title: "BSB-INTERN",
-    dropdownItems: [
-      {
-        page: "Webuntis",
-        link: "https://borys.webuntis.com/WebUntis/index.do;jsessionid=E4047A9BB7C2553AD07859B48C4A8D22#/basic/login",
-      },
-      {
-        page: "PaedML",
-        link: "https://intranet.bsb-bretten.de/nextcloud/login",
-      },
-      { page: "Schülermoodle", link: "https://bw.schule/login" },
-    ],
-  },
-  {
-    title: "ANMELDUNG",
-    dropdownItems: [
-      {
-        page: "Berufsschulen",
-        link: "https://bsb-bretten.de/wp-content/uploads/2024/11/Aufnahmeantrag_Berufsschule_2025-26.pdf",
-      },
-      {
-        page: "Einjährige Berufsschule - Metall",
-        link: "https://bsb-bretten.de/wp-content/uploads/2024/11/Aufnahmeantrag_AVDual_1BFMF_2025-26.pdf",
-      },
-      {
-        page: "Fachschule für Technik",
-        link: "https://bsb-bretten.de/wp-content/uploads/2024/11/Aufnahmeantrag_FTM_2025-26.pdf",
-      },
-      {
-        page: "AVDual",
-        link: "https://bsb-bretten.de/wp-content/uploads/2024/11/Aufnahmeantrag_AVDual_1BFMF_2025-26.pdf",
-      },
-      {
-        page: "VABO",
-        link: "https://bsb-bretten.de/wp-content/uploads/2024/11/Aufnahmeantrag_VABO_2025-26.pdf",
-      },
-      {
-        page: "Berufsfachschulen zur Aus- und Weiterbildung",
-        link: "https://bsb-bretten.de/wp-content/uploads/2024/11/Aufnahmeantrag_BFS_berufliche_Weiterb._2025-26.pdf",
-      },
-      {
-        page: "Aufbaukurs Gruppenleitung",
-        link: "https://bsb-bretten.de/wp-content/uploads/2024/02/Anmeldeformular_Aufbaukurs_Gruppenleitung_2024.pdf",
-      },
-      {
-        page: "BKFH",
-        link: "https://bsb-bretten.de/wp-content/uploads/2024/11/Aufnahmeantrag_BKFH_2025-26.pdf",
-      },
-    ],
-  },
-  {
-    title: "KONTAKT",
-    dropdownItems: [
-      { page: "Impressum", link: "/" },
-      { page: "Datenschutzerklärung", link: "/" },
-    ],
-  },
-];
+import { pages } from "./Resources";
 
 const Navbar: React.FC = () => {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("lg"));
+  const isMobile = useMediaQuery("(max-width: 600px)");
   const [openMenu, setOpenMenu] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(openMenu);
   const [openDropdown, setOpenDropdown] = useState<number | null>(null);
@@ -119,7 +46,7 @@ const Navbar: React.FC = () => {
           zIndex: 1550,
           display: "flex",
           position: "sticky",
-          bgcolor: style.palette.background.paper,
+          bgcolor: theme.palette.background.paper
         }}
       >
         <Container
@@ -127,7 +54,7 @@ const Navbar: React.FC = () => {
             display: "flex",
             minWidth: "100%",
             alignItems: "center",
-            justifyContent: "space-between",
+            justifyContent: "space-between"
           }}
         >
           <Toolbar disableGutters sx={{ width: "100%", mt: 1, mb: 1 }}>
@@ -139,21 +66,21 @@ const Navbar: React.FC = () => {
                 transition: "transform 0.3s ease-in-out",
                 outline: "none",
                 "&:hover": {
-                  transform: "scale(1.1)",
+                  transform: "scale(1.1)"
                 },
                 "&:active": {
-                  transform: "scale(1.2)",
-                },
+                  transform: "scale(1.2)"
+                }
               }}
-              onClick={() => (window.location.href = "/")} // Navigate to "/"
+              onClick={() => (window.location.href = "/")}
             >
               <img
                 src="\assets\logo.png"
                 alt="Logo"
-                width={70}
-                height={70}
+                width={isMobile ? 40 : 80}
+                height={isMobile ? 40 : 80}
                 style={{
-                  cursor: "pointer",
+                  cursor: "pointer"
                 }}
               />
             </IconButton>
@@ -164,7 +91,7 @@ const Navbar: React.FC = () => {
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "space-between",
-                  width: "100%",
+                  width: "100%"
                 }}
               >
                 <Box
@@ -173,7 +100,7 @@ const Navbar: React.FC = () => {
                     display: "flex",
                     position: "relative",
                     justifyContent: "flex-end",
-                    marginRight: 3,
+                    marginRight: 3
                   }}
                 >
                   {pages.map((page, index) => (
@@ -181,7 +108,7 @@ const Navbar: React.FC = () => {
                       key={index}
                       sx={{
                         position: "relative",
-                        "&:hover .dropdown": { display: "block" },
+                        "&:hover .dropdown": { display: "block" }
                       }}
                     >
                       <Box
@@ -190,16 +117,16 @@ const Navbar: React.FC = () => {
                           display: "flex",
                           alignItems: "center",
                           padding: 1,
-                          userSelect: "none", // Prevent text selection
+                          userSelect: "none",
                           "&:hover": {
                             color: theme.palette.primary.main,
                             "& .dropdownIcon": {
-                              color: theme.palette.primary.main, // Change icon color when hovering over Box
-                            },
+                              color: theme.palette.primary.main
+                            }
                           },
                           ...(openDropdown === index && {
-                            color: theme.palette.primary.main,
-                          }),
+                            color: theme.palette.primary.main
+                          })
                         }}
                       >
                         <Typography fontSize={17}>
@@ -215,8 +142,8 @@ const Navbar: React.FC = () => {
                                     ? theme.palette.primary.main
                                     : "#373b3f",
                                 "&:hover": {
-                                  color: theme.palette.primary.main, // Change icon color on hover
-                                },
+                                  color: theme.palette.primary.main
+                                }
                               }}
                             />
                           )}
@@ -230,7 +157,7 @@ const Navbar: React.FC = () => {
                             bgcolor: "background.paper",
                             boxShadow: 3,
                             zIndex: 1000,
-                            minWidth: 150,
+                            minWidth: 150
                           }}
                         >
                           {page.dropdownItems.map((subitem, subIndex) => (
@@ -238,23 +165,23 @@ const Navbar: React.FC = () => {
                               <ListItemButton
                                 sx={{
                                   "&:hover": {
-                                    bgcolor: theme.palette.primary.light,
-                                  },
+                                    bgcolor: theme.palette.primary.light
+                                  }
                                 }}
                               >
                                 <a
                                   href={subitem.link}
                                   style={{
                                     textDecoration: "none",
-                                    color: "inherit",
+                                    color: "inherit"
                                   }}
                                 >
                                   <ListItemText
                                     primary={subitem.page}
                                     primaryTypographyProps={{
                                       style: {
-                                        color: theme.palette.primary.main,
-                                      },
+                                        color: theme.palette.primary.main
+                                      }
                                     }}
                                   />
                                 </a>
@@ -272,7 +199,7 @@ const Navbar: React.FC = () => {
                 sx={{
                   display: "flex",
                   justifyContent: "end",
-                  width: "100%",
+                  width: "100%"
                 }}
               >
                 <IconButton onClick={() => setOpenMenu(!openMenu)}>
@@ -285,8 +212,8 @@ const Navbar: React.FC = () => {
                   sx={{
                     zIndex: 1551,
                     "& .MuiDrawer-paper": {
-                      pt: 2,
-                    },
+                      pt: 2
+                    }
                   }}
                 >
                   {pages.map((page, index) => (
@@ -296,12 +223,12 @@ const Navbar: React.FC = () => {
                           onClick={() => handleDropdownToggle(index)}
                           sx={{
                             "&:hover": {
-                              bgcolor: theme.palette.primary.light,
+                              bgcolor: theme.palette.primary.light
                             },
                             ...(openDropdown === index && {
                               bgcolor: theme.palette.primary.main,
-                              color: theme.palette.common.white,
-                            }),
+                              color: theme.palette.common.white
+                            })
                           }}
                         >
                           <ListItemText primary={page.title} />
@@ -312,7 +239,7 @@ const Navbar: React.FC = () => {
                                   openDropdown === index
                                     ? "rotate(180deg)"
                                     : "rotate(0deg)",
-                                transition: "transform 0.2s ease",
+                                transition: "transform 0.2s ease"
                               }}
                             />
                           )}
@@ -326,15 +253,15 @@ const Navbar: React.FC = () => {
                               sx={{
                                 pl: 4,
                                 "&:hover": {
-                                  bgcolor: theme.palette.primary.light,
-                                },
+                                  bgcolor: theme.palette.primary.light
+                                }
                               }}
                             >
                               <a
                                 href={subItem.link}
                                 style={{
                                   textDecoration: "none",
-                                  color: "inherit",
+                                  color: "inherit"
                                 }}
                               >
                                 <ListItemText primary={subItem.page} />
@@ -351,7 +278,7 @@ const Navbar: React.FC = () => {
           <Box
             sx={{
               display: "flex",
-              alignItems: "center",
+              alignItems: "center"
             }}
           >
             <IconButton
@@ -361,20 +288,20 @@ const Navbar: React.FC = () => {
               sx={{
                 transition: "transform 0.3s ease-in-out",
                 "&:hover": {
-                  transform: "scale(1.1)",
+                  transform: "scale(1.1)"
                 },
                 "&:active": {
-                  transform: "scale(1.2)",
-                },
+                  transform: "scale(1.2)"
+                }
               }}
             >
               <img
                 src="\assets\facebookIc.png"
                 alt="Facebook"
                 style={{
-                  width: 40,
-                  height: 40,
-                  objectFit: "contain",
+                  width: isMobile ? 30 : 40,
+                  height: isMobile ? 30 : 40,
+                  objectFit: "contain"
                 }}
               />
             </IconButton>
@@ -385,20 +312,20 @@ const Navbar: React.FC = () => {
               sx={{
                 transition: "transform 0.3s ease-in-out",
                 "&:hover": {
-                  transform: "scale(1.1)",
+                  transform: "scale(1.1)"
                 },
                 "&:active": {
-                  transform: "scale(1.2)",
-                },
+                  transform: "scale(1.2)"
+                }
               }}
             >
               <img
                 src="\assets\instagramIc.png"
                 alt="Instagram"
                 style={{
-                  width: 40,
-                  height: 40,
-                  objectFit: "contain",
+                  width: isMobile ? 30 : 40,
+                  height: isMobile ? 30 : 40,
+                  objectFit: "contain"
                 }}
               />
             </IconButton>
@@ -409,20 +336,20 @@ const Navbar: React.FC = () => {
               sx={{
                 transition: "transform 0.3s ease-in-out",
                 "&:hover": {
-                  transform: "scale(1.1)",
+                  transform: "scale(1.1)"
                 },
                 "&:active": {
-                  transform: "scale(1.2)",
-                },
+                  transform: "scale(1.2)"
+                }
               }}
             >
               <img
                 src="\assets\stageIc.png"
                 alt="WebUnite"
                 style={{
-                  width: 35,
-                  height: 35,
-                  objectFit: "contain",
+                  width: isMobile ? 25 : 35,
+                  height: isMobile ? 25 : 35,
+                  objectFit: "contain"
                 }}
               />
             </IconButton>
@@ -433,20 +360,20 @@ const Navbar: React.FC = () => {
               sx={{
                 transition: "transform 0.3s ease-in-out",
                 "&:hover": {
-                  transform: "scale(1.1)",
+                  transform: "scale(1.1)"
                 },
                 "&:active": {
-                  transform: "scale(1.2)",
-                },
+                  transform: "scale(1.2)"
+                }
               }}
             >
               <img
                 src="\assets\moodleIc.png"
                 alt="Moodle"
                 style={{
-                  width: 40,
-                  height: 40,
-                  objectFit: "contain",
+                  width: isMobile ? 30 : 40,
+                  height: isMobile ? 30 : 40,
+                  objectFit: "contain"
                 }}
               />
             </IconButton>
@@ -457,20 +384,20 @@ const Navbar: React.FC = () => {
               sx={{
                 transition: "transform 0.3s ease-in-out",
                 "&:hover": {
-                  transform: "scale(1.1)",
+                  transform: "scale(1.1)"
                 },
                 "&:active": {
-                  transform: "scale(1.2)",
-                },
+                  transform: "scale(1.2)"
+                }
               }}
             >
               <img
                 src="\assets\webUntisIc.png"
                 alt="WebUnite"
                 style={{
-                  width: 40,
-                  height: 40,
-                  objectFit: "contain",
+                  width: isMobile ? 30 : 40,
+                  height: isMobile ? 30 : 40,
+                  objectFit: "contain"
                 }}
               />
             </IconButton>

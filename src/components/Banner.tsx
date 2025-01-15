@@ -14,8 +14,8 @@ const Banner: React.FC = () => {
       sx={{
         "@media (max-width:600px)": {
           height: "auto",
-          paddingBottom: 4,
-        },
+          paddingBottom: 4
+        }
       }}
     >
       <Box
@@ -27,7 +27,7 @@ const Banner: React.FC = () => {
           width: "100%",
           objectFit: "cover",
           position: "absolute",
-          zIndex: -2,
+          zIndex: -2
         }}
       />
       <Box
@@ -38,7 +38,7 @@ const Banner: React.FC = () => {
           right: 0,
           bottom: 0,
           backgroundColor: "rgba(0, 0, 0, 0.3)",
-          zIndex: -1,
+          zIndex: -1
         }}
       />
 
@@ -50,7 +50,7 @@ const Banner: React.FC = () => {
         sx={{
           zIndex: 1,
           textAlign: "center",
-          padding: { xs: "0 20px", sm: "0" },
+          padding: { xs: "0 20px", sm: "0" }
         }}
       >
         <Typography
@@ -58,7 +58,7 @@ const Banner: React.FC = () => {
             color: "white",
             fontWeight: "bold",
             fontSize: { xs: "40px", sm: "90px" },
-            mt: 5,
+            mt: 5
           }}
         >
           Willkommen an den <br /> Beruflichen Schulen Bretten
@@ -72,20 +72,23 @@ const Banner: React.FC = () => {
               mt: 3,
               mb: 3,
               justifyContent: "center",
-              padding: { xs: "12px 24px", sm: "16px 32px" }, // Adjust button padding for small screens
-              fontSize: { xs: "16px", sm: "20px" }, // Adjust font size for small screens
+              padding: { xs: "12px 24px", sm: "16px 32px" },
+              fontSize: { xs: "16px", sm: "20px" },
               borderColor: "white",
               color: "white",
               borderWidth: "3px",
+              transition:
+                "transform 0.3s ease, background-color 0.3s ease, color 0.3s ease",
               "&:hover": {
                 transform: "scale(1.1)",
                 backgroundColor: "white",
                 color: (theme) => theme.palette.primary.main,
-                borderColor: "white",
+                borderColor: "white"
               },
               "&:active": {
                 transform: "scale(1.2)",
-              },
+                transition: "transform 0.2s ease-in-out"
+              }
             }}
           >
             AUFBAUKURS GRUPPENLEITUNG
@@ -95,20 +98,23 @@ const Banner: React.FC = () => {
             variant="outlined"
             sx={{
               justifyContent: "center",
-              padding: { xs: "12px 24px", sm: "16px 32px" }, // Adjust button padding for small screens
-              fontSize: { xs: "16px", sm: "20px" }, // Adjust font size for small screens
+              padding: { xs: "12px 24px", sm: "16px 32px" },
+              fontSize: { xs: "16px", sm: "20px" },
               borderColor: "white",
               color: "white",
               borderWidth: "3px",
+              transition:
+                "transform 0.3s ease, background-color 0.3s ease, color 0.3s ease",
               "&:hover": {
                 transform: "scale(1.1)",
                 backgroundColor: "white",
                 color: (theme) => theme.palette.primary.main,
-                borderColor: "white",
+                borderColor: "white"
               },
               "&:active": {
                 transform: "scale(1.2)",
-              },
+                transition: "transform 0.2s ease-in-out"
+              }
             }}
           >
             KVV-TICKET

@@ -1,4 +1,10 @@
-import { Grid2, Stack, Typography, useMediaQuery } from "@mui/material";
+import {
+  Grid2,
+  Stack,
+  Typography,
+  useMediaQuery,
+  useTheme
+} from "@mui/material";
 import { expertieses } from "./Resources";
 import ApartmentIcon from "@mui/icons-material/Apartment";
 import CalculateIcon from "@mui/icons-material/Calculate";
@@ -6,16 +12,19 @@ import SchoolIcon from "@mui/icons-material/School";
 import RiceBowlIcon from "@mui/icons-material/RiceBowl";
 import EngineeringIcon from "@mui/icons-material/Engineering";
 import BookIcon from "@mui/icons-material/Book";
-import style from "../style";
+import { useNavigate } from "react-router";
 
 const DepartmentComponent = () => {
+  const theme = useTheme();
+  const navigate = useNavigate();
+
   const backgroundColors = [
     "#c8e5fa",
     "#fad4e1",
     "#c8f7cc",
     "#ffe7c2",
     "#dbc8f7",
-    "#eec1f5",
+    "#eec1f5"
   ];
 
   const textColors = [
@@ -24,10 +33,10 @@ const DepartmentComponent = () => {
     "#7d1b1b",
     "#8a4a20",
     "#42781c",
-    "#218d8f",
+    "#218d8f"
   ];
 
-  const isMobile = useMediaQuery(style.breakpoints.down("sm"));
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
     <>
@@ -38,7 +47,7 @@ const DepartmentComponent = () => {
         sx={{
           pt: 10,
           marginBottom: 3,
-          textAlign: "start",
+          textAlign: "start"
         }}
       >
         <img
@@ -47,14 +56,14 @@ const DepartmentComponent = () => {
           style={{
             width: 40,
             height: 40,
-            marginRight: 12,
+            marginRight: 12
           }}
         />
         <Typography
           variant="h4"
           sx={{
             fontWeight: "bold",
-            color: style.palette.primary.main,
+            color: theme.palette.primary.main
           }}
         >
           Abteilung Bereich
@@ -67,10 +76,10 @@ const DepartmentComponent = () => {
         spacing={{ xs: 2, md: 3 }}
         columns={2}
         sx={{
-          flexWrap: useMediaQuery(style.breakpoints.up("xl")) ? "noWrap" : "",
+          flexWrap: useMediaQuery(theme.breakpoints.up("xl")) ? "noWrap" : "",
           width: "100%",
           justifyContent: "center",
-          zIndex: 99999,
+          zIndex: 99999
         }}
       >
         {expertieses.map((item, index) => (
@@ -78,12 +87,15 @@ const DepartmentComponent = () => {
             key={index}
             size={{ xs: 4, sm: 4, md: 4, xl: 1 }}
             sx={{
-              maxWidth: useMediaQuery(style.breakpoints.up("xl"))
+              maxWidth: useMediaQuery(theme.breakpoints.up("xl"))
                 ? "15%"
-                : "25.33%",
+                : "25.33%"
             }}
           >
             <Grid2
+              onClick={() => {
+                navigate(item.link);
+              }}
               height={isMobile ? "150px" : "300px"}
               width={"100%"}
               component={"button"}
@@ -94,18 +106,18 @@ const DepartmentComponent = () => {
                 backgroundColor: backgroundColors[index],
                 display: "flex",
                 flexDirection: "column",
-                alignItems: "center", // Center the icon on mobile
-                justifyContent: "center", // Center the icon vertically
-                padding: isMobile ? "0px" : "16px", // Padding remains same but adjust if needed
-                textAlign: "center", // Align text centrally when visible
+                alignItems: "center",
+                justifyContent: "center",
+                padding: isMobile ? "0px" : "16px",
+                textAlign: "center",
                 border: 0,
                 transition: "transform 0.3s ease, background-color 0.3s ease",
                 "&:hover": {
-                  transform: "scale(1.05)",
+                  transform: "scale(1.05)"
                 },
                 "&:active": {
-                  transform: "scale(1.2)",
-                },
+                  transform: "scale(1.2)"
+                }
               }}
             >
               <Stack
@@ -115,14 +127,14 @@ const DepartmentComponent = () => {
                 spacing={1}
                 sx={{
                   height: "100%",
-                  width: "100%",
+                  width: "100%"
                 }}
               >
                 <Grid2
                   sx={{
                     display: "flex",
                     justifyContent: "center",
-                    alignItems: "flex-start",
+                    alignItems: "flex-start"
                   }}
                 >
                   {index === 0 && (
@@ -131,7 +143,7 @@ const DepartmentComponent = () => {
                         mt: 6,
                         fontSize: 70,
                         color: "#271d80",
-                        mb: 3,
+                        mb: 3
                       }}
                     />
                   )}
@@ -141,7 +153,7 @@ const DepartmentComponent = () => {
                         mt: 6,
                         fontSize: 70,
                         color: "#671d82",
-                        mb: 3,
+                        mb: 3
                       }}
                     />
                   )}
@@ -151,7 +163,7 @@ const DepartmentComponent = () => {
                         mt: 6,
                         fontSize: 70,
                         color: "#7d1b1b",
-                        mb: 3,
+                        mb: 3
                       }}
                     />
                   )}
@@ -161,7 +173,7 @@ const DepartmentComponent = () => {
                         mt: 6,
                         fontSize: 70,
                         color: "#8a4a20",
-                        mb: 3,
+                        mb: 3
                       }}
                     />
                   )}
@@ -171,7 +183,7 @@ const DepartmentComponent = () => {
                         mt: 6,
                         fontSize: 70,
                         color: "#42781c",
-                        mb: 3,
+                        mb: 3
                       }}
                     />
                   )}
@@ -181,7 +193,7 @@ const DepartmentComponent = () => {
                         mt: 6,
                         fontSize: 70,
                         color: "#218d8f",
-                        mb: 3,
+                        mb: 3
                       }}
                     />
                   )}
@@ -194,7 +206,7 @@ const DepartmentComponent = () => {
                       fontWeight: "bold",
                       textAlign: "center",
                       marginTop: "8px",
-                      fontSize: "25px",
+                      fontSize: "20px"
                     }}
                   >
                     {item.name}

@@ -12,69 +12,31 @@ import {
   Stack,
   Typography,
   useMediaQuery,
-  useTheme,
+  useTheme
 } from "@mui/material";
 import CircleIcon from "@mui/icons-material/Circle";
 import { members } from "./Resources";
 import Banner from "./Banner";
-import style from "../style";
-
-const news = [
-  {
-    url: "https://bsb-bretten.de/2024/10/11/https-bsb-bretten-de-wp-content-uploads-2024-10-jungerukrainerfsj-jpeg/",
-    image:
-      "https://bsb-bretten.de/wp-content/uploads/2024/10/JungerUkrainerFSJ-300x225.jpeg",
-    subTitle: "Junger Ukrainer möchte Fachinformatiker werden",
-    title: "Erstmals FSJ digital an den Beruflichen Schulen Bretten",
-  },
-  {
-    url: "https://bsb-bretten.de/2024/07/28/verabschiedung-von-markus-bader-an-den-bsb/",
-    image:
-      "https://bsb-bretten.de/wp-content/uploads/2024/07/240726_Verabschiedung-Bader-300x195.jpeg",
-    subTitle: "Verabschiedung von Markus Bader an den BSB",
-    title: "Ein sehr aufmerksamer und sehr vertrauensvoller Pädagoge",
-  },
-  {
-    url: "https://bsb-bretten.de/2024/07/16/7904/",
-    image:
-      "https://bsb-bretten.de/wp-content/uploads/2024/07/240716_Abschlussfeier_02-300x170.jpeg",
-    subTitle: "Entlassungsfeier der BSB erstmals im Hallenzentrum „Grüner“",
-    title:
-      "Nicht weghören, sondern zuhören muss das Motto für die Zukunft sein",
-  },
-  {
-    url: "https://bsb-bretten.de/2024/07/15/chemiekurs-setzt-theoriet-in-praxis-um/",
-    image:
-      "https://bsb-bretten.de/wp-content/uploads/2024/07/240715_ChemieBach_01-300x169.jpg",
-    subTitle: "Chemiekurs setzt Theorie in Praxis um",
-    title: "Spannende Entdeckungen am Gölshäuser Dorfbach",
-  },
-  {
-    url: "https://bsb-bretten.de/2024/07/12/melanchthon-schuelerpreis-mit-750-euro-fuer-laura-katz-sgg/",
-    image:
-      "https://bsb-bretten.de/wp-content/uploads/2024/07/240711_Melanchthonpreis-225x300.jpg",
-    subTitle: "Melanchthon-Schülerpreis mit 750 Euro für Laura Katz (SGG)",
-    title: "In Sachen Ehrenamt ein Vorbild für die gesamte Schülerschaft",
-  },
-];
+import { news } from "./Resources";
 
 const MainContent = () => {
   const theme = useTheme();
   const isLargeScreen = useMediaQuery(theme.breakpoints.up("lg"));
+  const isMobile = useMediaQuery("(max-width: 600px)");
 
   return (
     <>
       <Banner />
       <Box
         sx={{
-          bgcolor: style.palette.background.paper,
+          bgcolor: theme.palette.background.paper
         }}
       >
         <DepartmentComponent />
         <Grid2
           size={{
             xs: 12,
-            md: 8,
+            md: 8
           }}
         >
           <Box
@@ -87,7 +49,7 @@ const MainContent = () => {
               sx={{
                 color: "darkblue",
                 textAlign: "center",
-                fontSize: "50px",
+                fontSize: "50px"
               }}
             >
               <i>
@@ -238,21 +200,22 @@ const MainContent = () => {
               justifyContent: "center",
               mt: 6,
               mb: 10,
-              gap: 20,
+              gap: isMobile ? 10 : 20,
+              flexDirection: isMobile ? "column" : "row"
             }}
           >
             <Box
               sx={{
-                width: "450px",
-                height: "650px",
+                width: isMobile ? "100%" : "450px",
+                height: isMobile ? "auto" : "650px",
                 position: "relative",
                 overflow: "hidden",
                 borderRadius: 4,
                 boxShadow: 8,
                 "&:hover img": {
                   transform: "scale(1.05)",
-                  transition: "transform 0.3s ease",
-                },
+                  transition: "transform 0.3s ease"
+                }
               }}
             >
               <Link
@@ -266,7 +229,7 @@ const MainContent = () => {
                     width: "100%",
                     height: "100%",
                     objectFit: "contain",
-                    display: "block",
+                    display: "block"
                   }}
                 />
               </Link>
@@ -274,16 +237,16 @@ const MainContent = () => {
 
             <Box
               sx={{
-                width: "450px",
-                height: "650px",
+                width: isMobile ? "100%" : "450px",
+                height: isMobile ? "auto" : "650px",
                 position: "relative",
                 overflow: "hidden",
                 borderRadius: 4,
                 boxShadow: 8,
                 "&:hover img": {
                   transform: "scale(1.05)",
-                  transition: "transform 0.3s ease",
-                },
+                  transition: "transform 0.3s ease"
+                }
               }}
             >
               <Link
@@ -297,7 +260,7 @@ const MainContent = () => {
                     width: "100%",
                     height: "100%",
                     objectFit: "contain",
-                    display: "block",
+                    display: "block"
                   }}
                 />
               </Link>
@@ -313,7 +276,7 @@ const MainContent = () => {
                 pt: 10,
                 pb: 3,
                 marginBottom: 3,
-                textAlign: "start",
+                textAlign: "start"
               }}
             >
               <img
@@ -322,14 +285,14 @@ const MainContent = () => {
                 style={{
                   width: 40,
                   height: 40,
-                  marginRight: 12,
+                  marginRight: 12
                 }}
               />
               <Typography
                 variant="h4"
                 sx={{
                   fontWeight: "bold",
-                  color: theme.palette.common.white,
+                  color: theme.palette.common.white
                 }}
               >
                 Unser Team die BSB
@@ -343,7 +306,7 @@ const MainContent = () => {
                 justifyContent="center"
                 alignItems="center"
                 sx={{
-                  flexWrap: "wrap",
+                  flexWrap: "wrap"
                 }}
               >
                 <Grid2
@@ -361,14 +324,14 @@ const MainContent = () => {
                         textAlign: "center",
                         width: "100%",
                         "@media (min-width:600px)": {
-                          width: "48%",
+                          width: "48%"
                         },
                         "@media (min-width:900px)": {
-                          width: "48%",
+                          width: "48%"
                         },
                         "@media (min-width:1200px)": {
-                          width: "48%",
-                        },
+                          width: "48%"
+                        }
                       }}
                     >
                       <Stack direction="column" spacing={1.5}>
@@ -383,11 +346,11 @@ const MainContent = () => {
                               transition:
                                 "transform 0.3s ease, background-color 0.3s ease",
                               "&:hover": {
-                                transform: "scale(1.05)",
+                                transform: "scale(1.05)"
                               },
                               "&:active": {
-                                transform: "scale(1.2)",
-                              },
+                                transform: "scale(1.2)"
+                              }
                             }}
                           />
                         </Link>
@@ -397,7 +360,7 @@ const MainContent = () => {
                             fontWeight: "bold",
                             textAlign: "left",
                             fontSize: "27px",
-                            lineHeight: 1.3,
+                            lineHeight: 1.3
                           }}
                         >
                           {member.name.split(" ").map((part, index) => (
@@ -412,7 +375,7 @@ const MainContent = () => {
                           whiteSpace="nowrap"
                           color={theme.palette.common.white}
                           sx={{
-                            textAlign: "left",
+                            textAlign: "left"
                           }}
                         >
                           {member.title}
@@ -438,14 +401,14 @@ const MainContent = () => {
                         width: "100%",
                         height: "auto",
                         "@media (min-width:600px)": {
-                          width: "29.7%",
+                          width: "29.7%"
                         },
                         "@media (min-width:900px)": {
-                          width: "25.7%",
+                          width: "25.7%"
                         },
                         "@media (min-width:1200px)": {
-                          width: "18.7%",
-                        },
+                          width: "18.7%"
+                        }
                       }}
                     >
                       <Stack direction="column" spacing={1.5}>
@@ -460,11 +423,11 @@ const MainContent = () => {
                               transition:
                                 "transform 0.3s ease, background-color 0.3s ease",
                               "&:hover": {
-                                transform: "scale(1.05)",
+                                transform: "scale(1.05)"
                               },
                               "&:active": {
-                                transform: "scale(1.2)",
-                              },
+                                transform: "scale(1.2)"
+                              }
                             }}
                           />
                         </Link>
@@ -475,7 +438,7 @@ const MainContent = () => {
                             textAlign: "left",
                             fontSize: "27px",
                             lineHeight: 1.3,
-                            minHeight: 54,
+                            minHeight: 54
                           }}
                         >
                           {member.name.split(" ").map((part, index) => (
@@ -491,7 +454,7 @@ const MainContent = () => {
                           sx={{
                             textAlign: "left",
                             minHeight: 50,
-                            lineHeight: 1.4,
+                            lineHeight: 1.4
                           }}
                           color={theme.palette.common.white}
                         >
@@ -519,7 +482,7 @@ const MainContent = () => {
                 pt: 10,
                 pb: 3,
                 marginBottom: 3,
-                textAlign: "start",
+                textAlign: "start"
               }}
             >
               <img
@@ -528,14 +491,14 @@ const MainContent = () => {
                 style={{
                   width: 40,
                   height: 40,
-                  marginRight: 12,
+                  marginRight: 12
                 }}
               />
               <Typography
                 variant="h4"
                 sx={{
                   fontWeight: "bold",
-                  color: style.palette.primary.main,
+                  color: theme.palette.primary.main
                 }}
               >
                 Videos
@@ -550,13 +513,13 @@ const MainContent = () => {
                 display: "flex",
                 alignItems: isLargeScreen ? "flex-end" : "center",
                 justifyContent: "center",
-                flexWrap: "wrap",
+                flexWrap: "wrap"
               }}
             >
               <Grid2 justifyItems="center" sx={{ textAlign: "center" }}>
                 <video
-                  height={isLargeScreen ? 300 : 200} // Adjust height on smaller screens
-                  width={isLargeScreen ? 500 : "100%"} // Make the video responsive on smaller screens
+                  height={isLargeScreen ? 300 : 200}
+                  width={isLargeScreen ? 500 : "100%"}
                   controls
                 >
                   <source
@@ -570,8 +533,8 @@ const MainContent = () => {
                 <Link href="https://www.unserebroschuere.de/video/20AA30190">
                   <img
                     src="https://bsb-bretten.de/wp-content/uploads/2023/02/thumbnail.jpg"
-                    height={isLargeScreen ? 290 : 200} // Adjust height on smaller screens
-                    width={isLargeScreen ? 500 : "100%"} // Make the image responsive on smaller screens
+                    height={isLargeScreen ? 290 : 200}
+                    width={isLargeScreen ? 500 : "100%"}
                     alt="Thumbnail"
                   />
                 </Link>
@@ -579,8 +542,8 @@ const MainContent = () => {
               </Grid2>
               <Grid2 justifyItems="center" sx={{ textAlign: "center" }}>
                 <video
-                  height={isLargeScreen ? 300 : 200} // Adjust height on smaller screens
-                  width={isLargeScreen ? 500 : "100%"} // Make the video responsive on smaller screens
+                  height={isLargeScreen ? 300 : 200}
+                  width={isLargeScreen ? 500 : "100%"}
                   controls
                 >
                   <source
@@ -601,7 +564,7 @@ const MainContent = () => {
             justifyItems: "center",
             pt: 10,
             mt: 10,
-            bgcolor: theme.palette.primary.main,
+            bgcolor: theme.palette.primary.main
           }}
         >
           <Box width={"90%"}>
@@ -609,7 +572,7 @@ const MainContent = () => {
               height={"100%"}
               sx={{
                 mb: 4,
-                justifyItems: "center",
+                justifyItems: "center"
               }}
             >
               <Stack
@@ -619,7 +582,7 @@ const MainContent = () => {
                 sx={{
                   pb: 3,
                   marginBottom: 3,
-                  textAlign: "start",
+                  textAlign: "start"
                 }}
               >
                 <img
@@ -628,14 +591,14 @@ const MainContent = () => {
                   style={{
                     width: 40,
                     height: 40,
-                    marginRight: 12,
+                    marginRight: 12
                   }}
                 />
                 <Typography
                   variant="h4"
                   sx={{
                     fontWeight: "bold",
-                    color: theme.palette.common.white,
+                    color: theme.palette.common.white
                   }}
                 >
                   Was gibt es Neues?
@@ -651,7 +614,7 @@ const MainContent = () => {
               flexDirection: "column",
               alignItems: "center",
               padding: 2,
-              pb: 5,
+              pb: 5
             }}
           >
             {news.map((item, index) => (
@@ -664,37 +627,38 @@ const MainContent = () => {
                   alignItems: "center",
                   display: "flex",
                   flexDirection: "column",
+                  gap: 2
                 }}
               >
                 <Box
                   sx={{
                     display: "flex",
-                    flexDirection: "row",
+                    flexDirection: isMobile ? "column" : "row",
                     alignItems: "center",
                     justifyContent: "flex-start",
                     gap: 3,
-                    width: "80%",
+                    width: isMobile ? "100%" : "80%",
                     marginBottom: 4,
                     boxShadow: 2,
                     borderRadius: 2,
                     transition: "all 0.3s ease-in-out",
                     "&:hover": {
                       boxShadow: 8,
-                      transform: "scale(1.1)",
+                      transform: "scale(1.1)"
                     },
                     "&:active": {
-                      transform: "scale(1.2)",
+                      transform: "scale(1.2)"
                     },
-                    bgcolor: theme.palette.common.white,
+                    bgcolor: theme.palette.common.white
                   }}
                 >
                   <Box
                     sx={{
-                      width: 370,
-                      height: 200,
+                      width: isMobile ? "100%" : 370,
+                      height: isMobile ? 200 : 200,
                       overflow: "hidden",
                       borderRadius: 2,
-                      position: "relative",
+                      position: "relative"
                     }}
                   >
                     <img
@@ -703,36 +667,38 @@ const MainContent = () => {
                       style={{
                         width: "100%",
                         height: "100%",
-                        objectFit: "cover",
+                        objectFit: "cover"
                       }}
                     />
                   </Box>
+
                   <Box
                     sx={{
                       display: "flex",
                       flexDirection: "column",
                       justifyContent: "center",
                       flex: 1,
+                      paddingLeft: isMobile ? 2 : 2
                     }}
                   >
                     <Typography
                       sx={{
-                        fontSize: "0.9rem",
+                        fontSize: isMobile ? "1rem" : "0.9rem",
                         fontWeight: "bold",
                         color: theme.palette.primary.main,
-                        textAlign: "left",
-                        marginTop: 1,
+                        textAlign: "left"
                       }}
                     >
                       {item.subTitle}
                     </Typography>
                     <Typography
                       sx={{
-                        fontSize: "1.7rem",
+                        fontSize: isMobile ? "1.5rem" : "1.7rem",
                         fontWeight: "bold",
                         color: theme.palette.primary.main,
                         textAlign: "left",
                         marginTop: 1,
+                        marginBottom: isMobile ? 2 : 0
                       }}
                     >
                       {item.title}
